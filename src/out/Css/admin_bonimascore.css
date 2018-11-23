@@ -1,0 +1,21 @@
+table.d3bonimascore tr.headings {
+    background: url('../Img/sort_row_bg.gif') 0 50% repeat-x;
+}
+
+table.d3bonimascore tr.headings th {
+    border-width: 1px;
+    border-color: #f9f9f9 #d1cfcf #f9f9f9 #f9f9f9;
+    border-style: solid;
+    padding-top: 5px;
+    font-size: .9em;
+}
+
+table.d3bonimascore th, table.d3bonimascore td {
+    padding: 2px 4px 2px 4px;
+}
+
+table.d3bonimascore td {
+    border-width: 0 1px 1px 0;
+    border-color: #dadfe0;
+    border-style: solid;
+}
