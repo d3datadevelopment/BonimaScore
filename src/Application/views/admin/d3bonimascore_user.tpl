@@ -27,7 +27,7 @@
         <tr>
             <!-- Anfang linke Seite -->
             <td valign="top" class="edittext" align="left" width="50%">
-                [{if false == $aAdresse}]
+                [{if false == $oBonimaConfig}]
                     [{oxmultilang ident="D3_BONIMASCORE_USER_NOTING_FOUND"}]
                 [{else}]
                     <table cellspacing="0" cellpadding="0" border="0">
@@ -44,7 +44,7 @@
                                             <label for="identifizierung">[{oxmultilang ident="D3_BONIMASCORE_USER_PERSON_STATUS"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" id="identifizierung" class="editinput" size="60" value="[{$aIdent->identifizierung->value}]" readonly>
+                                            <input type="text" id="identifizierung" class="editinput" size="60" value="[{$aIdent->identifizierung->value}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -52,7 +52,7 @@
                                             <label for="existenz">[{oxmultilang ident="D3_BONIMASCORE_USER_PERSON_EXIST"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" size="10" id="existenz" value="[{if $aIdent->existenz == "true"}]ja[{else}]nein[{/if}]" readonly>
+                                            <input type="text" class="editinput" size="10" id="existenz" value="[{if $aIdent->existenz == "true"}]ja[{else}]nein[{/if}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -60,7 +60,7 @@
                                             <label for="status">[{oxmultilang ident="D3_BONIMASCORE_USER_ADRESS_STATUS"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" id="status" class="editinput" size="60" value="[{$aStatus->value}]" readonly>
+                                            <input type="text" id="status" class="editinput" size="60" value="[{$aStatus->value}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -68,7 +68,7 @@
                                             <label for="date">[{oxmultilang ident="D3_BONIMASCORE_USER_CHECKTIME"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="date" size="37" value="[{$aDetails.datum}], [{$aDetails.uhrzeit}] Uhr" readonly>
+                                            <input type="text" class="editinput" id="date" size="37" value="[{$aDetails.datum}], [{$aDetails.uhrzeit}] Uhr" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -94,7 +94,7 @@
                                             <label for="anrede">[{oxmultilang ident="GENERAL_BILLSAL"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="anrede" size="10" value="[{$aPerson->anrede->value}]" readonly>
+                                            <input type="text" class="editinput" id="anrede" size="10" value="[{$aPerson->anrede->value}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -103,8 +103,8 @@
                                             <label for="name" style="position: absolute; left: -9999em">[{oxmultilang ident="GENERAL_NAME"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" id="prename" class="editinput" size="16" value="[{$aPerson->vorname}]" readonly>
-                                            <input type="text" class="editinput" id="name" size="16" value="[{$aPerson->name}]" readonly>
+                                            <input type="text" id="prename" class="editinput" size="16" value="[{$aPerson->vorname}]" readonly disabled>
+                                            <input type="text" class="editinput" id="name" size="16" value="[{$aPerson->name}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -112,7 +112,7 @@
                                             <label for="birthdate">[{oxmultilang ident="GENERAL_BIRTHDATE"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" size="37" id="birthdate" value="[{$aPerson->geburtsdatum}]" readonly>
+                                            <input type="text" class="editinput" size="37" id="birthdate" value="[{$aPerson->geburtsdatum}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -121,8 +121,8 @@
                                             <label for="streetno" style="position: absolute; left: -9999em">[{oxmultilang ident="GENERAL_STREETNUM"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="street" size="28" value="[{$aAdresse->strasse}]" readonly>
-                                            <input type="text" class="editinput" id="streetno" size="5" value="[{$aAdresse->hausnummer}]" readonly>
+                                            <input type="text" class="editinput" id="street" size="28" value="[{$aAdresse->strasse}]" readonly disabled>
+                                            <input type="text" class="editinput" id="streetno" size="5" value="[{$aAdresse->hausnummer}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -131,8 +131,8 @@
                                             <label for="zip" style="position: absolute; left: -9999em">[{oxmultilang ident="GENERAL_ZIPCITY"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="zip" size="5" value="[{$aAdresse->plz}]" readonly>
-                                            <input type="text" class="editinput" id="ort" size="28" value="[{$aAdresse->ort}]" readonly>
+                                            <input type="text" class="editinput" id="zip" size="5" value="[{$aAdresse->plz}]" readonly disabled>
+                                            <input type="text" class="editinput" id="ort" size="28" value="[{$aAdresse->ort}]" readonly disabled>
                                         </td>
                                     </tr>
 
@@ -141,7 +141,7 @@
                                             <label for="land">[{oxmultilang ident="GENERAL_COUNTRY"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="land" size="5" value="[{$aAdresse->laenderkennzeichen}]" readonly>
+                                            <input type="text" class="editinput" id="land" size="5" value="[{$aAdresse->laenderkennzeichen}]" readonly disabled>
                                         </td>
                                     </tr>
 
@@ -163,7 +163,7 @@
                                             <label for="scorevalue">[{oxmultilang ident="D3_BONIMASCORE_USER_SCOREVALUE"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="scorevalue" size="37" value="[{$aDetails.scores->score->wert}] ([{$aDetails.scores->score->scoreTyp->value}])" readonly>
+                                            <input type="text" class="editinput" id="scorevalue" size="37" value="[{$aDetails.scores->score->wert}] ([{$aDetails.scores->score->scoreTyp->value}])" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -171,7 +171,7 @@
                                             <label for="scoreclass">[{oxmultilang ident="D3_BONIMASCORE_USER_SCORECLASS"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="scoreclass" size="37" value="[{$oBonimaConfig->getFieldData('scoreclass')}]" readonly>
+                                            <input type="text" class="editinput" id="scoreclass" size="37" value="[{$oBonimaConfig->getFieldData('scoreclass')}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -179,7 +179,7 @@
                                             <label for="creditlimit">[{oxmultilang ident="D3_BONIMASCORE_USER_SCORECREDITLIMIT"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="creditlimit" size="37" value="[{$oBonimaConfig->getFieldData('creditlimit')}]" readonly>
+                                            <input type="text" class="editinput" id="creditlimit" size="37" value="[{$oBonimaConfig->getFieldData('creditlimit')}]" readonly disabled>
                                         </td>
                                     </tr>
                                 [{/if}]
