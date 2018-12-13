@@ -249,7 +249,7 @@ class d3bonimascore_user extends AdminController
 
         $iValidPeriod = $this->d3GetSettings()->getLicenseConfigData(d3bonimascore_conf::SERIAL_BIT_PREMIUMEDITION, 1) && $this->d3GetSettings()->getValue('iD3BonimaScoreValidPeriod')
             ? $this->d3GetSettings()->getValue('iD3BonimaScoreValidPeriod')
-            : 1;    // response ist 1 Tag gültig
+            : 1;    // response ist 1 Tag gÃ¼ltig
         $aDetails = $this->getBonimaResponseTaskDetails();
 
         $sLastCheckDatetime = strtotime($aDetails['datum'] . " " . $aDetails['uhrzeit']);
