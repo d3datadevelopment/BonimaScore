@@ -127,7 +127,12 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
 
         /** @var d3_oxuser_bonimascore $oUser */
         $oUser = $this->getUser();
-        if (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->d3HasValidBirthdateValue()) {
+        if (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->isLoaded())
+        {
+            $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'no user loaded');
+            $mReturn = $this->d3GetNoValidBirthdateReturn();
+        }
+        elseif (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->d3HasValidBirthdateValue()) {
             $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'user entered no (valid) birthdate');
             $mReturn = $this->d3GetNoValidBirthdateReturn();
         } elseif (false === $oBonima->hasValidPaymentSelected()) {
@@ -137,19 +142,24 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
         return $mReturn;
     }
 
+    public function d3GetNoValidBirthdayController()
+    {
+        return "user";
+    }
+
     /**
      * @return string
      */
     public function d3GetNoValidBirthdateReturn()
     {
-        $sUserController = 'user';
+        $sReturnController = $this->d3GetNoValidBirthdayController();
 
         /** @var InputException $oException */
         $oException = oxNew(InputException::class, 'D3_BONIMASCORE_BIRTHDAY_INVALID');
-        Registry::get(UtilsView::class)->addErrorToDisplay($oException, false, false, '', $sUserController);
+        Registry::get(UtilsView::class)->addErrorToDisplay($oException, false, false, '', $sReturnController);
         Registry::getSession()->setVariable('d3BonimaScoreRequBirthDate', true);
 
-        return $sUserController;
+        return $sReturnController;
     }
 
     /**
