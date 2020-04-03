@@ -29,7 +29,7 @@ $aModule = array(
         'en' => '',
     ),
     'thumbnail'    => null,
-    'version'      => '3.0.0.0',
+    'version'      => '3.0.1.0',
     'author'       => 'D&sup3; Data Development (Inh.: Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
