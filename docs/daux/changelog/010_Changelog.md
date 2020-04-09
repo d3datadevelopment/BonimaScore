@@ -2,6 +2,12 @@
 title: Changelog
 ---
 
+## 3.0.2.0 - 2020-04-08
+### Added
+- installierbar in OXID 6.2
+
+---
+
 ## 3.0.1.0 - 2020-04-03
 ### Changed
 - Erweiterbarkeit verbessert für Rückleitung im Falle des nicht gesetzten Geburtstages

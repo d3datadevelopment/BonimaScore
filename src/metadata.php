@@ -15,7 +15,6 @@
  * @link      http://www.oxidmodule.com
  */
 
-use D3\Bonimascore\setup as ModuleSetup;
 use D3\ModCfg\Application\Model\d3utils;
 use OxidEsales\Eshop\Application\Controller as OxidController;
 use OxidEsales\Eshop\Application\Model as OxidModel;
@@ -28,8 +27,7 @@ $aModule = array(
         'de' => 'Dieses Modul bindet BonimaScoreIdent im Checkout ein.',
         'en' => '',
     ),
-    'thumbnail'    => null,
-    'version'      => '3.0.1.0',
+    'version'      => '3.0.2.0',
     'author'       => 'D&sup3; Data Development (Inh.: Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
@@ -91,24 +89,5 @@ $aModule = array(
         'main.payment_box.inc.tpl'          => 'd3/bonimascore/Application/views/admin/main.payment_box.inc.tpl',
         'd3bonimascore_user.tpl'            => 'd3/bonimascore/Application/views/admin/d3bonimascore_user.tpl',
         'd3bonimascore_usergroup.tpl'       => 'd3/bonimascore/Application/views/admin/d3bonimascore_usergroup.tpl',
-    ),
-    'd3FileRegister'    => array(
-        'd3/bonimascore/Application/Model/d3bonima.php',
-        'd3/bonimascore/Application/Model/d3bonimascore.php',
-        'd3/bonimascore/Application/Model/d3bonimascoreConnector.php',
-        'd3/bonimascore/Application/Model/d3bonimascoreRequest.php',
-        'd3/bonimascore/Application/Model/d3bonimascoreResponse.php',
-        'd3/bonimascore/setup/d3bonimascore_update.php',
-        'd3/bonimascore/setup/Events.php',
-        'd3/bonimascore/metadata.php',
-        'd3/bonimascore/IntelliSenseHelper.php',
-        'd3/bonimascore/Application/views/admin/de/bonimascore_lang.php',
-        'd3/bonimascore/Application/views/admin/en/bonimascore_lang.php',
-        'd3/bonimascore/Application/translations/de/bonimascore_lang.php',
-        'd3/bonimascore/Application/translations/en/bonimascore_lang.php',
-        'd3/bonimascore/Core/d3bonimascore_conf.php',
-    ),
-    'd3SetupClasses'    => array(
-        ModuleSetup\d3bonimascore_update::class,
     )
 );
