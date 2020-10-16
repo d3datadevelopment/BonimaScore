@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="de">
 <head>
-    <title>Changelog -  BonimaScore</title>
+    <title>Editionen -  BonimaScore</title>
         <meta name="description" content="">
     <meta name="author" content="D³ Data Development">
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
 
         <div class="Collapsible__content">
             <!-- Navigation -->
-            <ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../changelog/Changelog.html">Changelog</a></li></ul>
+            <ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../editions/Editionen.html">Editionen</a></li></ul>
             
 
 
@@ -70,117 +70,65 @@
                 <article class="Page">
 
     <div class="Page__header">
-        <h1><a href="../changelog/Changelog.html">Changelog</a></h1>
+        <h1><a href="../editions/Editionen.html">Editionen</a></h1>
                 <span class="ModifiedDate">
                         16.10.2020        </span>
                     </div>
 
     <div class="s-content">
-        <h2 id="page_3-0-2-0-2020-04-08">3.0.2.0 - 2020-04-08</h2>
-<h3 id="page_Added">Added</h3>
-<ul>
-<li>installierbar in OXID 6.2</li>
-</ul>
-<hr />
-<h2 id="page_3-0-1-0-2020-04-03">3.0.1.0 - 2020-04-03</h2>
-<h3 id="page_Changed">Changed</h3>
-<ul>
-<li>Erweiterbarkeit verbessert für Rückleitung im Falle des nicht gesetzten Geburtstages</li>
-<li>Dokumentation ergänzt</li>
-</ul>
-<h3 id="page_Fixed">Fixed</h3>
-<ul>
-<li>vermeidet Bonima-Check, wenn Bestellung im Admin geändert oder neu berechnet wird</li>
-<li>Geburtstagsprüfung bei nicht ladbarem Kundenkonto korrigiert</li>
-</ul>
-<hr />
-<h2 id="page_3-0-0-0-2018-11-26">3.0.0.0 - 2018-11-26</h2>
-<h3 id="page_Changed-2">Changed</h3>
-<ul>
-<li>Refaktorisierung für OXID 6.0</li>
-<li>Vorabprüfung entfernt - Scorewert wird (wenn nicht vorhanden) erst bei Auswahl einer relevanten Zahlungsart angefordert</li>
-<li>Zahlenangaben werden in Shop-Standardwährung konvertiert</li>
-<li>zusätzliche Prüfungen eingefügt</li>
-<li>Optionen sind über Lizenzschlüssel aktivierbar</li>
-<li>Übersetzungen ergänzt und aktualisiert</li>
-</ul>
-<p><strong>Minor version upgrade notice: there are some backward-incompatible changes to this release.</strong></p>
-<hr />
-<h2 id="page_2-0-0-1-2018-10-30">2.0.0.1 - 2018-10-30</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>fehlende Übersetzung eingefügt</li>
-</ul>
-<h3 id="page_Changed-2">Changed</h3>
-<ul>
-<li>PostPaymentCheck: Zahlarten werden nur geprüft, wenn diese keine &quot;sicheren Zahlarten&quot; sind</li>
-<li>Fehlerbehandlung im Fall von Falscheingaben korrigiert</li>
-</ul>
-<hr />
-<h2 id="page_2-0-0-0-2018-10-11">2.0.0.0 - 2018-10-11</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>umfangreiches Logging eingefügt</li>
-<li>Lizenzverwendung integriert</li>
-</ul>
-<h3 id="page_Changed-2">Changed</h3>
-<ul>
-<li>Basis auf D3 Modul Connector umgestellt</li>
-<li>Abfragen werden nur noch max. 1x pro Tag durchgeführt, kürzere Abfragen werden aus der Speicherung in der Shopdatenbank bedient</li>
-<li>informatorische Fehlermeldungen werden bei Validierungsproblemen auch im Frontend gezeigt</li>
-<li>Refactoring des gesamten Moduls</li>
-</ul>
-<hr />
-<h2 id="page_1-1-2-0-2018-08-21">1.1.2.0 - 2018-08-21</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>Check-Ausschluss für Kunden und Kundengruppen eingefügt (erfordert zusätzliches Plugin)</li>
-<li>Bonitätsprüfung auf Basis des Mindestwarenkorbwertes eingefügt (erfordert zusätzliches Plugin)</li>
-</ul>
-<hr />
-<h2 id="page_1-1-1-0-2017-12-07">1.1.1.0 - 2017-12-07</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>kundenspezifisches Kreditlimit eingefügt</li>
-<li>Testpersonenmatrix eingefügt</li>
-</ul>
-<h3 id="page_Changed-2">Changed</h3>
-<ul>
-<li>gecachter Response erkennt Adressänderung</li>
-<li>Precheck</li>
-</ul>
-<hr />
-<h2 id="page_1-1-0-3-2017-10-16">1.1.0.3 - 2017-10-16</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>nachgelagerte Bonitätsprüfung (#6777)</li>
-</ul>
-<hr />
-<h2 id="page_1-1-0-2-2016-07-04">1.1.0.2 - 2016-07-04</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>Prüfung der Lieferadresse (erfordert AddOn)</li>
-</ul>
-<h3 id="page_Changed-2">Changed</h3>
-<ul>
-<li>veralteten Code korrigiert</li>
-<li>fehlerhafte Admindarstellung bei nicht gesetzten Safe-Payments korrigiert</li>
-</ul>
-<hr />
-<h2 id="page_1-1-0-1-2016-06-10">1.1.0.1 - 2016-06-10</h2>
-<h3 id="page_Added-2">Added</h3>
-<ul>
-<li>Precheck</li>
-</ul>
-<h3 id="page_Changed-2">Changed</h3>
-<ul>
-<li>WSDL-Adresse angepasst</li>
-</ul>
+        <p>Das Modul <strong><i class='fab fa-d3 d3fa-color-blue'></i> BonimaScore</strong> erhalten Sie in verschiedenen Editionen mit unterschiedlichem Funktionsumfang.</p>
+<h2 id="page_Funktionsumfang">Funktionsumfang</h2>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Standard-Edition</th>
+<th align="center">Premium-Edition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">nachgelagerte Bonitätsprüfung</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">Infotab am Adminkundenkonto</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">Prüfung der Bonität erst ab einem bestimmten Warenkorbwert</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">Kunden und Kundengruppen können von der Prüfung ausgeschlossen werden</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">kundenidividuelles Kreditlimit</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">Zahlarten bei abweichender Lieferadresse verweigern</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">Gültigkeitsdauer einer Prüfung festlegen</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+</tbody>
+</table>
     </div>
 
         <nav>
         <ul class="Pager">
-            <li class=Pager--prev><a href="../index.html">Zurück</a></li>            <li class=Pager--next><a href="../editions/Editionen.html">Weiter</a></li>        </ul>
+            <li class=Pager--prev><a href="../changelog/Changelog.html">Zurück</a></li>            <li class=Pager--next><a href="../installation/Installation.html">Weiter</a></li>        </ul>
     </nav>
     </article>
 
