@@ -254,9 +254,7 @@ class d3bonimascore_user extends AdminController
 
         $sLastCheckDatetime = strtotime($aDetails['datum'] . " " . $aDetails['uhrzeit']);
 
-        $sNextCheckDatetime = strtotime("+$iValidPeriod day", $sLastCheckDatetime);
-
-        return $sNextCheckDatetime;
+        return strtotime("+$iValidPeriod day", $sLastCheckDatetime);
     }
 
     /**

@@ -15,51 +15,55 @@
  * @link      http://www.oxidmodule.com
  */
 
-use D3\ModCfg\Application\Model\d3utils;
+use D3\Bonimascore\Modules\Application\Controller\d3_payment_bonimascore;
+use D3\Bonimascore\Modules\Application\Controller\d3_user_bonimascore;
+use D3\Bonimascore\Modules\Application\Model\d3_oxorder_bonimascore;
+use D3\Bonimascore\Modules\Application\Model\d3_oxuser_bonimascore;
 use OxidEsales\Eshop\Application\Controller as OxidController;
 use OxidEsales\Eshop\Application\Model as OxidModel;
+use D3\Bonimascore\Application\Controller\Admin as ModuleControllerAdmin;
 
 $sMetadataVersion = '2.0';
-$aModule = array(
+$sLogo = '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> ';
+
+$aModule = [
     'id'           => 'd3bonimascore',
-    'title'        => 
-        '<svg style="height:1em;width:1em"><image xlink:href="https://logos.oxidmodule.com/d3logo.svg" style="height:1em;width:1em" /></svg> '.
-        'BonimaScore',
-    'description'  => array(
+    'title'        => $sLogo . 'BonimaScore',
+    'description'  => [
         'de' => 'Dieses Modul bindet BonimaScoreIdent im Checkout ein.',
         'en' => '',
-    ),
-    'version'      => '3.0.2.1',
+    ],
+    'version'      => '3.1.0.0',
     'author'       => 'D&sup3; Data Development (Inh.: Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
-    'events'       => array(
+    'events'       => [
         'onActivate'    => '\D3\Bonimascore\setup\Events::onActivate',
         'onDeactivate'  => '\D3\Bonimascore\setup\Events::onDeactivate',
-    ),
-    'extend'       => array(
-        OxidModel\User::class => \D3\Bonimascore\Modules\Application\Model\d3_oxuser_bonimascore::class,
-        OxidModel\Order::class => \D3\Bonimascore\Modules\Application\Model\d3_oxorder_bonimascore::class,
-        OxidController\PaymentController::class => \D3\Bonimascore\Modules\Application\Controller\d3_payment_bonimascore::class,
-        OxidController\UserController::class => \D3\Bonimascore\Modules\Application\Controller\d3_user_bonimascore::class
-    ),
-    'controllers'        => array(
-        'd3bonimascore_matrix_frame'        => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_matrix_frame::class,
-        'd3bonimascore_matrix_list'         => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_matrix_list::class,
-        'd3bonimascore_matrix_main'         => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_matrix_main::class,
-        'd3bonimascore_config_frame'        => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_config_frame::class,
-        'd3bonimascore_config_list'         => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_config_list::class,
-        'd3bonimascore_config_main'         => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_config_main::class,
-        'd3bonimascore_payment_frame'       => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_payment_frame::class,
-        'd3bonimascore_payment_list'        => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_payment_list::class,
-        'd3bonimascore_payment_main'        => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_payment_main::class,
-        'd3bonimascore_user'                => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_user::class,
-        'd3bonimascore_usergroup'           => \D3\Bonimascore\Application\Controller\Admin\d3bonimascore_usergroup::class,
-        'd3bonimascorelog_list'             => \D3\Bonimascore\Application\Controller\Admin\d3bonimascorelog_list::class,
-        'd3bonimascorelog'                  => \D3\Bonimascore\Application\Controller\Admin\d3bonimascorelog::class,
-        'd3bonimascore_support'             => \D3\Bonimascore\Application\Controller\Admin\support::class,
-    ),
-    'settings'     => array(),
+    ],
+    'extend'       => [
+        OxidModel\User::class => d3_oxuser_bonimascore::class,
+        OxidModel\Order::class => d3_oxorder_bonimascore::class,
+        OxidController\PaymentController::class => d3_payment_bonimascore::class,
+        OxidController\UserController::class => d3_user_bonimascore::class
+    ],
+    'controllers'        => [
+        'd3bonimascore_matrix_frame'        => ModuleControllerAdmin\d3bonimascore_matrix_frame::class,
+        'd3bonimascore_matrix_list'         => ModuleControllerAdmin\d3bonimascore_matrix_list::class,
+        'd3bonimascore_matrix_main'         => ModuleControllerAdmin\d3bonimascore_matrix_main::class,
+        'd3bonimascore_config_frame'        => ModuleControllerAdmin\d3bonimascore_config_frame::class,
+        'd3bonimascore_config_list'         => ModuleControllerAdmin\d3bonimascore_config_list::class,
+        'd3bonimascore_config_main'         => ModuleControllerAdmin\d3bonimascore_config_main::class,
+        'd3bonimascore_payment_frame'       => ModuleControllerAdmin\d3bonimascore_payment_frame::class,
+        'd3bonimascore_payment_list'        => ModuleControllerAdmin\d3bonimascore_payment_list::class,
+        'd3bonimascore_payment_main'        => ModuleControllerAdmin\d3bonimascore_payment_main::class,
+        'd3bonimascore_user'                => ModuleControllerAdmin\d3bonimascore_user::class,
+        'd3bonimascore_usergroup'           => ModuleControllerAdmin\d3bonimascore_usergroup::class,
+        'd3bonimascorelog_list'             => ModuleControllerAdmin\d3bonimascorelog_list::class,
+        'd3bonimascorelog'                  => ModuleControllerAdmin\d3bonimascorelog::class,
+        'd3bonimascore_support'             => ModuleControllerAdmin\support::class,
+    ],
+    'settings'     => [],
     'blocks'      => [
         [
             'template'  => 'page/checkout/inc/payment_other.tpl',
@@ -82,14 +86,21 @@ $aModule = array(
             'file'      => 'Application/views/blocks/page/checkout/inc/checkout_payment_longdesc.tpl',
         ]
     ],
-    'templates'    => array(
-        'd3bonimascore_frame.tpl'           => 'd3/bonimascore/Application/views/admin/frame.tpl',
-        'd3bonimascore_list.tpl'            => 'd3/bonimascore/Application/views/admin/list.tpl',
-        'd3bonimascore_config_main.tpl'     => 'd3/bonimascore/Application/views/admin/config_main.tpl',
-        'd3bonimascore_matrix_main.tpl'     => 'd3/bonimascore/Application/views/admin/matrix_main.tpl',
-        'd3bonimascore_payment_main.tpl'    => 'd3/bonimascore/Application/views/admin/payment_main.tpl',
-        'main.payment_box.inc.tpl'          => 'd3/bonimascore/Application/views/admin/main.payment_box.inc.tpl',
-        'd3bonimascore_user.tpl'            => 'd3/bonimascore/Application/views/admin/d3bonimascore_user.tpl',
-        'd3bonimascore_usergroup.tpl'       => 'd3/bonimascore/Application/views/admin/d3bonimascore_usergroup.tpl',
-    )
-);
+    'templates'    => [
+        'd3bonimascore_frame.tpl'        => 'd3/bonimascore/Application/views/admin/frame.tpl',
+        'd3bonimascore_list.tpl'         => 'd3/bonimascore/Application/views/admin/list.tpl',
+        'd3bonimascore_config_main.tpl'  => 'd3/bonimascore/Application/views/admin/config_main.tpl',
+        'd3bonimascore_matrix_main.tpl'  => 'd3/bonimascore/Application/views/admin/matrix_main.tpl',
+        'd3bonimascore_payment_main.tpl' => 'd3/bonimascore/Application/views/admin/payment_main.tpl',
+        'main.payment_box.inc.tpl'       => 'd3/bonimascore/Application/views/admin/main.payment_box.inc.tpl',
+        'd3bonimascore_user.tpl'         => 'd3/bonimascore/Application/views/admin/d3bonimascore_user.tpl',
+        'd3bonimascore_usergroup.tpl'    => 'd3/bonimascore/Application/views/admin/d3bonimascore_usergroup.tpl',
+
+        'd3_bonimascore_mandatory_oxuser__oxsal.tpl'       => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxsal.tpl',
+        'd3_bonimascore_mandatory_oxuser__oxlname.tpl'     => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxlname.tpl',
+        'd3_bonimascore_mandatory_oxuser__oxfname.tpl'     => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxfname.tpl',
+        'd3_bonimascore_mandatory_oxuser__oxstreet.tpl'    => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxstreet.tpl',
+        'd3_bonimascore_mandatory_oxuser__oxzip.tpl'       => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxzip.tpl',
+        'd3_bonimascore_mandatory_oxuser__oxbirthdate.tpl' => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxbirthdate.tpl',
+    ]
+];

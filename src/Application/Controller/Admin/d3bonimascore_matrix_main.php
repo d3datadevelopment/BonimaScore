@@ -23,12 +23,15 @@ use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
+use Exception;
+use OxidEsales\Eshop\Application\Model\Payment;
 use OxidEsales\Eshop\Application\Model\PaymentList;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Model\ListModel;
 use OxidEsales\Eshop\Core\Registry;
+use PDO;
 
 class d3bonimascore_matrix_main extends d3_cfg_mod_main
 {
@@ -48,7 +51,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      * @throws StandardException
-     * @throws \Exception
+     * @throws Exception
      */
     public function save()
     {
@@ -78,7 +81,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
 
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('*')
-            ->from(getViewName('d3bonimascore'))
+            ->from(oxNew(d3bonimascore::class)->getViewName())
             ->where('shopid = '.$oQB->createNamedParameter($sShopId))
             ->addOrderBy('identreturncode', 'DESC')
             ->addOrderBy('scoreclass', 'ASC');
@@ -114,8 +117,8 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
     {
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('*')
-            ->from(getViewName('oxpayments'))
-            ->where('oxactive = '.$oQB->createNamedParameter(1, \PDO::PARAM_INT))
+            ->from(oxNew(Payment::class)->getViewName())
+            ->where('oxactive = '.$oQB->createNamedParameter(1, PDO::PARAM_INT))
             ->orderBy('oxdesc');
 
         /** @var PaymentList $oList */

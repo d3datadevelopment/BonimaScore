@@ -23,6 +23,7 @@ use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminController;
 use OxidEsales\Eshop\Application\Model\Groups;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
@@ -60,7 +61,7 @@ class d3bonimascore_usergroup extends AdminController
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function save()
     {

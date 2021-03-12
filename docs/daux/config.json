@@ -1,9 +1,9 @@
 {
     "title": "<i class='fab fa-d3 d3fa-color-blue'></i> BonimaScore",
-    "moduleversion": "3.0.2.1",
+    "moduleversion": "3.1.0.0",
     "titledesc": "für den Oxid eShop",
     "author": "D³ Data Development",
-    "moduledate": "16.10.2020",
+    "moduledate": "11.03.2021",
     "editors": "",
     "tagline": "",
     "image": "",
@@ -64,6 +64,7 @@
         "modulename"    : "<i class='fab fa-d3 d3fa-color-blue'></i> BonimaScore",
         "menutitle"     : "<i class='fab fa-d3 d3fa-color-blue'></i> BonimaScore",
         "modulefolder"  : "bonimascore",
+        "metadataident" : "d3bonimascore",
         "modcfgident"   : "d3bonimascore",
         "composerident" : "d3/bonimascore"
     },

@@ -30,6 +30,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Model\ListModel;
 use OxidEsales\Eshop\Core\Registry;
+use PDO;
 
 class d3bonimascore_config_main extends d3_cfg_mod_main
 {
@@ -84,8 +85,8 @@ class d3bonimascore_config_main extends d3_cfg_mod_main
     {
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('*')
-            ->from(getViewName('oxcountry'))
-            ->where('oxactive='.$oQB->createNamedParameter(1, \PDO::PARAM_INT));
+            ->from(oxNew(Country::class)->getViewName())
+            ->where('oxactive='.$oQB->createNamedParameter(1, PDO::PARAM_INT));
 
         /** @var ListModel $oList */
         $oList = oxNew(ListModel::class);
