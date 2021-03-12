@@ -2,6 +2,27 @@
 title: Changelog
 ---
 
+## 3.1.0.0 - 2021-03-12
+### Added
+- erforderliche Felder, die im Shop keine Pflichtfelder sind, werden an der zu prüfenden Zahlart zusätzlich abgefragt
+  - funktioniert für alle Boniversum-Pflichtfelder
+  - wenn die Felder unabhängig vom Pflichtfeld schon ausgefüllt sind, erfolgt keine zusätzliche Abfrage
+
+### Changed
+- Templates für Verwendung in Flow- und Wave-Theme aktualisiert
+
+### Fixed
+- Geburtsdatumauswahl zeigt komplette Monatsnamen anstelle der Ziffern
+
+---
+
+## 3.0.2.1 - 2020-10-16
+### Changed
+- Titellogo auf statischen Asset umgestellt
+- Dokumentation aktualisiert
+
+---
+
 ## 3.0.2.0 - 2020-04-08
 ### Added
 - installierbar in OXID 6.2

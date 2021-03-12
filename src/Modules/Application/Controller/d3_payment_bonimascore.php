@@ -25,15 +25,15 @@ use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Log\d3log;
+use DateTime;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Application\Model\Payment;
 use OxidEsales\Eshop\Application\Model\PaymentList;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
-use OxidEsales\Eshop\Core\Exception\InputException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\UtilsView;
 
 class d3_payment_bonimascore extends d3_payment_bonimascore_parent
 {
@@ -127,37 +127,64 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
 
         /** @var d3_oxuser_bonimascore $oUser */
         $oUser = $this->getUser();
-        if (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->isLoaded())
-        {
+        if (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->isLoaded()) {
             $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'no user loaded');
-            $mReturn = $this->d3GetNoValidBirthdateReturn();
-        }
-        elseif (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->d3HasValidBirthdateValue()) {
-            $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'user entered no (valid) birthdate');
-            $mReturn = $this->d3GetNoValidBirthdateReturn();
+            $mReturn = $this->d3GetNoMandatoryFieldValueReturn();
+        } elseif (false === $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false === $oUser->d3HasMandatoryFieldValues()) {
+            $mReturn = $this->d3GetNoMandatoryFieldValueReturn();
         } elseif (false === $oBonima->hasValidPaymentSelected()) {
             $mReturn = $this->d3GetNoValidPaymentReturn();
-        };
+        }
 
         return $mReturn;
     }
 
-    public function d3GetNoValidBirthdayController()
+    public function d3GetNoValidMandatoryValueController()
     {
         return "user";
     }
 
     /**
+     * @return string[]
+     */
+    public function d3GetNotRequestedMandatoryFields()
+    {
+        /** @var d3_oxuser_bonimascore $user */
+        $user = $this->getUser();
+        return $user->d3GetNotRequestedMandatoryFields();
+    }
+
+    /**
+     * combine oxstreet + oxstreetnr
+     * @return string[]
+     */
+    public function d3GetNotRequestedCombinedMandatoryFields()
+    {
+        $replaces = [
+            'oxuser__oxstreetnr' => 'oxuser__oxstreet',
+            'oxuser__oxcity'     => 'oxuser__oxzip',
+        ];
+
+        $fields = $this->d3GetNotRequestedMandatoryFields();
+        foreach ($replaces as $search => $replace) {
+            if ( false !== $fieldIdent = array_search( $search, $fields ) ) {
+                $fields[ $fieldIdent ] = $replace;
+            }
+        }
+
+        return array_unique($fields, SORT_STRING);
+    }
+
+    /**
      * @return string
      */
-    public function d3GetNoValidBirthdateReturn()
+    public function d3GetNoMandatoryFieldValueReturn()
     {
-        $sReturnController = $this->d3GetNoValidBirthdayController();
+        $sReturnController = $this->d3GetNoValidMandatoryValueController();
 
-        /** @var InputException $oException */
-        $oException = oxNew(InputException::class, 'D3_BONIMASCORE_BIRTHDAY_INVALID');
-        Registry::get(UtilsView::class)->addErrorToDisplay($oException, false, false, '', $sReturnController);
-        Registry::getSession()->setVariable('d3BonimaScoreRequBirthDate', true);
+        /** @var d3_oxuser_bonimascore $user */
+        $user = $this->getUser();
+        Registry::getSession()->setVariable('d3BonimaScoreRequiredFields', $user->d3GetNotRequestedMandatoryFields());
 
         return $sReturnController;
     }
@@ -196,7 +223,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
 
         Registry::getSession()->deleteVariable('d3BonimaScorePaymentFailed');
         Registry::getSession()->deleteVariable('d3BonimaScoreDelAddrFailed');
-        Registry::getSession()->deleteVariable('d3BonimaScoreRequBirthDate');
+        Registry::getSession()->deleteVariable('d3BonimaScoreRequiredFields');
 
         /** @var d3bonima $oBonima */
         $oBonima = oxNew(d3bonima::class);
@@ -373,5 +400,31 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
         $oPayment->load($sPaymentId);
 
         return (bool) $oPayment->getFieldData('d3bonimascoresafe');
+    }
+
+    /**
+     * @return array
+     * @throws Exception
+     */
+    public function d3GetUserBirthdate()
+    {
+        $birthdate = (string) Registry::getSession()->getUser()->getFieldData('oxbirthdate');
+
+        // because of DateTime bug with zero date
+        if ($birthdate === '0000-00-00') {
+            return [
+                'year'  => '0000',
+                'month' => '00',
+                'day'   => '00'
+            ];
+        }
+
+        $date = new DateTime($birthdate);
+
+        return [
+            'year'  => $date->format('Y'),
+            'month' => $date->format('m'),
+            'day'   => $date->format('d')
+        ];
     }
 }

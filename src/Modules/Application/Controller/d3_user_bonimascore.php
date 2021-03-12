@@ -31,10 +31,14 @@ class d3_user_bonimascore extends d3_user_bonimascore_parent
         $aMustFillFields = parent::getMustFillFields();
         $aMustFillFieldsLower = array_map('strtolower', array_keys($aMustFillFields));
 
-        if (Registry::getSession()->getVariable('d3BonimaScoreRequBirthDate')
-            && false == in_array('oxuser__oxbirthdate', $aMustFillFieldsLower)
-        ) {
-            $aMustFillFields['oxuser__oxbirthdate'] = true;
+        $mandatoryFields = Registry::getSession()->getVariable('d3BonimaScoreRequiredFields');
+
+        if ($mandatoryFields) {
+            foreach ($mandatoryFields as $field) {
+                if (false === in_array($field, $aMustFillFieldsLower)) {
+                    $aMustFillFields[$field] = true;
+                }
+            }
         }
 
         return $aMustFillFields;

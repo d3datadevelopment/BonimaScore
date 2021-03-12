@@ -17,6 +17,8 @@
 
 namespace D3\Bonimascore\Application\Controller\Admin;
 
+use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Application\Model\Payment;
 use OxidEsales\Eshop\Core\Registry;
 
@@ -26,8 +28,8 @@ class d3bonimascore_payment_main extends d3bonimascore_matrix_main
 
     /**
      * Speichert sichere Zahlungsarten
-     * @throws \Doctrine\DBAL\DBALException
-     * @throws \Exception
+     * @throws DBALException
+     * @throws Exception
      */
     public function save()
     {
