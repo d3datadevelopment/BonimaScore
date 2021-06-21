@@ -45,32 +45,40 @@
     <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
-<form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" style="padding: 0; margin: 0; height:0;" enctype="multipart/form-data">
-    [{$oViewConf->getHiddenSid()}]
-    <input type="hidden" name="cl" value="[{$oView->getClassName()}]">
-    <input type="hidden" name="fnc" value="">
-    <input type="hidden" name="oxid" value="[{$oxid}]">
+[{block name="d3_bonimascore_safepayments_outerform"}]
+    <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" style="padding: 0; margin: 0; height:0;" enctype="multipart/form-data">
+        [{$oViewConf->getHiddenSid()}]
+        <input type="hidden" name="cl" value="[{$oView->getClassName()}]">
+        <input type="hidden" name="fnc" value="">
+        <input type="hidden" name="oxid" value="[{$oxid}]">
 
-    <div class="d3Info"><label for="safepayments">[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SAFEPAYMENTINFO'}]</label></div>
-    <table cellspacing="0" class="d3bonimascore">
-      <tbody>
-        <tr>
-            <td>
-                <select multiple="" size="[{$oView->d3GetPaymentList()|@count}]" name="safepayments[]" id="safepayments">
-                    [{foreach from=$oView->d3GetPaymentList() key='sPaymentId' item='oPayment'}]
-                        <option [{if $oPayment->oxpayments__d3bonimascoresafe->value}]selected=""[{/if}] value="[{$sPaymentId}]">[{$oPayment->oxpayments__oxdesc->value}]</option>
-                    [{/foreach}]
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input onclick="document.myedit.fnc.value='save';" type="submit" value="[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SAVE'}]" />
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</form>
+        [{block name="d3_bonimascore_safepayments_innerform"}]
+            <div class="d3Info"><label for="safepayments">[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SAFEPAYMENTINFO'}]</label></div>
+            <table cellspacing="0" class="d3bonimascore">
+                <tbody>
+                    [{block name="d3_bonimascore_safepayments_innertable"}]
+                        <tr>
+                            <td>
+                                <select multiple="" size="[{$oView->d3GetPaymentList()|@count}]" name="safepayments[]" id="safepayments">
+                                    [{foreach from=$oView->d3GetPaymentList() key='sPaymentId' item='oPayment'}]
+                                        [{block name="d3_bonimascore_safepayments_select"}]
+                                            <option [{if $oPayment->oxpayments__d3bonimascoresafe->value}]selected=""[{/if}] value="[{$sPaymentId}]">[{$oPayment->oxpayments__oxdesc->value}]</option>
+                                        [{/block}]
+                                    [{/foreach}]
+                                </select>
+                            </td>
+                        </tr>
+                    [{/block}]
+                <tr>
+                    <td>
+                        <input onclick="document.myedit.fnc.value='save';" type="submit" value="[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SAVE'}]" />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        [{/block}]
+    </form>
+[{/block}]
 
 [{include file="bottomnaviitem.tpl"}]
 [{include file="bottomitem.tpl"}]
