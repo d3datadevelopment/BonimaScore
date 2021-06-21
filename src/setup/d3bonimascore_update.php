@@ -17,6 +17,7 @@
 
 namespace D3\Bonimascore\setup;
 
+use D3\Bonimascore\Application\Model\d3bonimascore;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ParameterNotFoundException;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
@@ -35,14 +36,14 @@ class d3bonimascore_update extends d3install_updatebase
 {
     public $sModKey = 'd3bonimascore';
     public $sModName = 'BonimaScore';
-    public $sModVersion = '3.1.0.0';
-    public $sModRevision = '3100';
-    public $sBaseConf = 'u82v2==NzNkbEJ3QWZBWi9uYjRUMXlXR3FJdWUzZVBGUWVUZGFMQUs4dzgrNzRUbWtWWFVlc2poUjFzZ
-jZpM21KUFRkalozNGh4N0VwUHNFc0phciszRk83ZWgyNWFkYVdGN1BXc2JuKzJ5ZnFRRW9hUStCbVBLR
-DhjaEY1bXFqQWxScXYyU0NNYlA5WC9KT2d3UnUya0hUR251c3IxTXR1UGNyNnhxYkhFZFFZV2I4aFV2M
-HYyeW9sc3NFSnlXK1hEczlhVWd3RDdZTjJQVWlGSElUTnpKcmJGSmt1OU9QS2NwUmIzU2RDbEZJazJZe
-ko0Um5ibFFORVo5dTlGT0hRVG1uOGt5MGJ6a2ZxOG5qeVN5YnVKVkN5UXhCeStKcWZ6djN3UlRjamNWS
-HdoWDdQdkRob1BlcmxhN0lEby9Vd2NzV1l4QS9Za2FjMHl4SzhlcjNhNzZZUWhnPT0=';
+    public $sModVersion = '3.1.1.0';
+    public $sModRevision = '3110';
+    public $sBaseConf = '8nVv2==bWsrNkFxN3JpWGJYUGFFWDNYanpLdndsSWdGMGd4L0dJdU93WnBsa3h6bEhCbUEyUUpCMlRLU
+jlCLzZSK0NQQWxNZkI4MUV3YVZLYWd3bEZFZERYMmpDMy9lckY3UUx1SHNBNmJnWWZRdG9YYURLQ0FRd
+FJmbERwVHFLcVdtS1hiMTMrOWoxY2FIdnZqVHRoRGs0b09YMGpWTnRNaXlETGRUMGVNcGI4a1ZIdE85N
+lJjR1RPSHBCWEtDZEJSbzBXN3MyMmJMV2ZoZmpuL1V6UEJBZHJLd3gwRy9oaUVHVVdQam8wNVZ3M29OU
+HNCTm0vZE1jdVZOOGZ0NGFKcVVNMlZHNVZteFVhcEZhNnNqa3Y2VWh4SXdjUG94cytwOGdMSUhhVStKc
+3crZUY2ZU5WQXRiRkZOTVdrSm5LbGd0MndBNFZnTmdHOG9JSTZZRlhjU2FzQ1RnPT0=';
     public $sRequirements = '';
     public $sBaseValue = 'TyUzQTglM0ElMjJzdGRDbGFzcyUyMiUzQTYlM0ElN0JzJTNBMzMlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZUNvdW50cnklMjIlM0JzJTNBMjYlM0ElMjJhN2M0MGY2MzFmYzkyMDY4Ny4yMDE3OTk4NCUyMiUzQnMlM0EzMiUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUHJvZElkJTIyJTNCcyUzQTAlM0ElMjIlMjIlM0JzJTNBMzklM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVBvc3RDaGVja1RleHQlMjIlM0JzJTNBMzAlM0ElMjJEM19CT05JTUFTQ09SRV9QQVlDSEVDS19GQUlMRUQlMjIlM0JzJTNBMzAlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVVzZXIlMjIlM0JzJTNBMCUzQSUyMiUyMiUzQnMlM0EzMCUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUGFzcyUyMiUzQnMlM0EwJTNBJTIyJTIyJTNCcyUzQTQzJTNBJTIyZDNfY2ZnX21vZF9fc0QzQm9uaW1hU2NvcmVMaW1pdEV4Y2VlZGVkVGV4dCUyMiUzQnMlM0EzNSUzQSUyMkQzX0JPTklNQVNDT1JFX0NSRURJVExJTUlUX0VYQ0VFREVEJTIyJTNCJTdE';
 
@@ -61,6 +62,10 @@ HdoWDdQdkRob1BlcmxhN0lEby9Vd2NzV1l4QS9Za2FjMHl4SzhlcjNhNzZZUWhnPT0=';
               'do'    => 'fixIndizes'),
         array('check' => 'checkScoreItemsExist',
               'do'    => 'updateScoreItemsExist'),
+        array('check' => 'checkValidunc7FromValue',
+              'do'    => 'updateValidunc7FromValue'),
+        array('check' => 'checkInvalid10Values',
+              'do'    => 'updateInvalid10Values'),
         array('check' => 'hasUnregisteredFiles',
               'do'    => 'showUnregisteredFiles'),
         array('check' => 'checkModCfgSameRevision',
@@ -652,7 +657,7 @@ HdoWDdQdkRob1BlcmxhN0lEby9Vd2NzV1l4QS9Za2FjMHl4SzhlcjNhNzZZUWhnPT0=';
                'd3bonimascore__identreturncode' => '0',
                'd3bonimascore__scoreconfigurable' => '1',
                'd3bonimascore__scoreclass' => 7,
-               'd3bonimascore__scorefrom' => 952,
+               'd3bonimascore__scorefrom' => 925,
                'd3bonimascore__scoreto' => 904,
                'd3bonimascore__negativeprobability' => 9.4,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
@@ -688,8 +693,8 @@ HdoWDdQdkRob1BlcmxhN0lEby9Vd2NzV1l4QS9Za2FjMHl4SzhlcjNhNzZZUWhnPT0=';
                'd3bonimascore__identreturncode' => '0,1',
                'd3bonimascore__scoreconfigurable' => '1',
                'd3bonimascore__scoreclass' => 10,
-               'd3bonimascore__scorefrom' => 0,
-               'd3bonimascore__scoreto' => 10000,
+               'd3bonimascore__scorefrom' => 10000,
+               'd3bonimascore__scoreto' => 0,
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
@@ -874,6 +879,122 @@ HdoWDdQdkRob1BlcmxhN0lEby9Vd2NzV1l4QS9Za2FjMHl4SzhlcjNhNzZZUWhnPT0=';
 
                     $this->setInitialExecMethod( __METHOD__ );
                     $blRet = $this->_updateTableItem2('d3bonimascore', $aInsertFields, $aWhere);
+                }
+            }
+        }
+
+        return $blRet;
+    }
+
+    /**
+     * @return bool
+     * @throws ConnectionException
+     * @throws DatabaseConnectionException
+     */
+    public function checkValidunc7FromValue()
+    {
+        $score = oxNew(d3bonimascore::class);
+
+        foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
+            $query = "SELECT count(*) FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('validunc7', ' ', ".$oShop->getId().")) AND scorefrom = '952'";
+            if ((bool) $this->getDb()->getOne($query)) {
+                return true;
+            };
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function updateValidunc7FromValue()
+    {
+        $score = oxNew(d3bonimascore::class);
+
+        foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
+            $query = "SELECT oxid FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('validunc7', ' ', ".$oShop->getId().")) AND scorefrom = '952'";
+            foreach ($this->getDb()->getAll($query) as $fields) {
+                $fields = array_change_key_case($fields, CASE_UPPER);
+                $blRet = $this->_updateTableItem2(
+                    $score->getCoreTableName(),
+                    array(
+                        array(
+                            'fieldname'    => 'scorefrom',
+                            'content'      => 925,
+                            'force_update' => true,
+                            'use_quote'    => false,
+                        )
+                    ),
+                    array('OXID'    => $fields['OXID'])
+                );
+                if ($blRet == false) {
+                    break;
+                }
+            }
+        }
+
+        return $blRet;
+    }
+
+    /**
+     * @return bool
+     * @throws ConnectionException
+     * @throws DatabaseConnectionException
+     */
+    public function checkInvalid10Values()
+    {
+        $score = oxNew(d3bonimascore::class);
+
+        foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
+            $query = "SELECT count(*) FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('invalid10', ' ', ".$oShop->getId().")) AND scorefrom = '0' AND scoreto = '10000'";
+            if ((bool) $this->getDb()->getOne($query)) {
+                return true;
+            };
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function updateInvalid10Values()
+    {
+        $score = oxNew(d3bonimascore::class);
+
+        foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
+            $query = "SELECT oxid FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('invalid10', ' ', ".$oShop->getId().")) AND scorefrom = '0' AND scoreto = '10000'";
+            foreach ($this->getDb()->getAll($query) as $fields) {
+                $fields = array_change_key_case($fields, CASE_UPPER);
+                $blRet = $this->_updateTableItem2(
+                    $score->getCoreTableName(),
+                    array(
+                        array(
+                            'fieldname'    => 'scorefrom',
+                            'content'      => 10000,
+                            'force_update' => true,
+                            'use_quote'    => false,
+                        ),
+                        array(
+                            'fieldname'    => 'scoreto',
+                            'content'      => 0,
+                            'force_update' => true,
+                            'use_quote'    => false,
+                        )
+                    ),
+                    array('OXID'    => $fields['OXID'])
+                );
+                if ($blRet == false) {
+                    break;
                 }
             }
         }

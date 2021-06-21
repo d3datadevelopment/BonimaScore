@@ -138,5 +138,6 @@ $aLang = array(
     'D3_BONIMASCORE_ADMIN_EXCLUDEUSERS_DESC'       => 'Ist dieser Haken gesetzt, wird die Bonitätsprüfung für alle markierten Benutzer und Kundengruppen ausgenommen. Diese Kunden sehen alle verfügbaren Zahlungsarten. Die Markierung setzen Sie am jeweiligen Kundenkonto oder an der Kundengruppe.',
     'D3_BONIMASCORE_EXCLUDEFROMCHECK'              => 'Kunde wird durch Boniversum nicht geprüft',
     'D3_BONIMASCORE_EXCLUDEGROUPFROMCHECK'         => 'alle Kunden dieser Gruppe werden durch Boniversum nicht geprüft',
-    'D3_BONIMASCORE_ADMIN_HLOPTIONNOTACTIVE'       => '(Option nicht aktiv)'
+    'D3_BONIMASCORE_ADMIN_HLOPTIONNOTACTIVE'       => '(Option nicht aktiv)',
+    'D3_BONIMASCORE_PAYMENTS_PLEASE_CHOOSE'        => 'Bitte wählen Sie',
 );

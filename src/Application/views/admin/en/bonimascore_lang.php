@@ -144,5 +144,6 @@ $aLang = array(
     'D3_BONIMASCORE_ADMIN_EXCLUDEUSERS_DESC'       => 'If this checkmark is set, the credit check is excluded for all selected users and customer groups. These customers get all available payment methods. You set the marking on the respective customer account or on the customer group.',
     'D3_BONIMASCORE_EXCLUDEFROMCHECK'              => 'Customer is not checked by Boniversum',
     'D3_BONIMASCORE_EXCLUDEGROUPFROMCHECK'         => 'all customers in this group are not checked by Boniversum',
-    'D3_BONIMASCORE_ADMIN_HLOPTIONNOTACTIVE'       => '(option not active)'
+    'D3_BONIMASCORE_ADMIN_HLOPTIONNOTACTIVE'       => '(option not active)',
+    'D3_BONIMASCORE_PAYMENTS_PLEASE_CHOOSE'        => 'Please choose',
 );

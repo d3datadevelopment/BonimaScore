@@ -33,7 +33,7 @@ $aModule = [
         'de' => 'Dieses Modul bindet BonimaScoreIdent im Checkout ein.',
         'en' => '',
     ],
-    'version'      => '3.1.0.0',
+    'version'      => '3.1.1.0',
     'author'       => 'D&sup3; Data Development (Inh.: Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',

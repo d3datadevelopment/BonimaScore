@@ -2,6 +2,20 @@
 title: Changelog
 ---
 
+## 3.1.1.0 - 2021-06-21
+### Added
+- installierbar in OXID 6.2.3 und 6.2.4
+
+### Changed
+- Templateblöcke für einfachere Überladung eingefügt
+- Scoreanfragen werden als Info zur einfacheren Nachvollziehbarkeit mitgeschrieben
+
+### Fixed
+- falscher Score Startwert in der Entscheidungsmatrix korrigiert
+- verdrehte Score Ranges im Status 3 für statistische Abfragen korrigiert
+
+---
+
 ## 3.1.0.0 - 2021-03-12
 ### Added
 - erforderliche Felder, die im Shop keine Pflichtfelder sind, werden an der zu prüfenden Zahlart zusätzlich abgefragt
