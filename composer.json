@@ -1,0 +1,45 @@
+{
+  "name": "d3/bonimascore",
+  "description": "Boniversum module for OXID eShop.",
+  "type": "oxideshop-module",
+  "keywords": [
+    "oxid",
+    "modules",
+    "eShop",
+    "d3",
+    "boniversum",
+    "bonimascore",
+    "rating"
+  ],
+  "authors": [
+    {
+        "name": "D3 Data Development (Inh. Thomas Dartsch)",
+        "email": "info@shopmodule.com",
+        "homepage": "https://www.d3data.de",
+        "role": "Owner"
+    }
+  ],
+  "homepage": "https://www.oxidmodule.com/",
+  "license": [
+    "proprietary"
+  ],
+  "extra": {
+    "oxideshop": {
+      "source-directory": "/src",
+      "target-directory": "d3/bonimascore"
+    }
+  },
+  "require": {
+    "php": "7.3 - 8.0", "ext-ionCube-Loader": "*",
+    "oxid-esales/oxideshop-ce": "6.8 - 6.9",
+    "d3/modcfg": "^6.0",
+    "ext-json": "*",
+    "ext-soap": "*",
+    "ext-PDO": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "D3\\Bonimascore\\": "../../../source/modules/d3/bonimascore"
+    }
+  }
+}
