@@ -14,6 +14,7 @@ title: Systemanforderungen
 * Shopversionen
     * OXID eShop in Compilation Version 
         * 6.3.x
+        * 6.4.x
 * Themes
     * flow
     * wave

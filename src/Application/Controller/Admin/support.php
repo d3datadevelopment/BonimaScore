@@ -31,5 +31,4 @@ class support extends d3_cfg_mod_licence
 
     protected $_sLogType = 2;
     protected $_sDefaultHelpLinkAdd = 'Fragen-zu-speziellen-Modulen/';
-
 }

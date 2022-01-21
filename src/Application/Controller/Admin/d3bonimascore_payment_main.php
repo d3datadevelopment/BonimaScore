@@ -36,15 +36,15 @@ class d3bonimascore_payment_main extends d3bonimascore_matrix_main
         $aPayments = Registry::getRequest()->getRequestEscapedParameter('safepayments');
 
         /** @var Payment $oPayment */
-        foreach( $this->d3GetPaymentList() as $oPayment ) {
+        foreach ($this->d3GetPaymentList() as $oPayment) {
             $oPayment->assign(
-                array(
+                [
                    'd3bonimascoresafe' => is_array($aPayments) ?
                        (in_array($oPayment->getId(), $aPayments)) ?
                            1 :
                            0
                        : 0,
-                )
+                ]
             );
             $oPayment->save();
         }

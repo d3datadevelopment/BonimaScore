@@ -44,5 +44,4 @@ class d3bonimascore_matrix_list extends AdminListController
      * @var string
      */
     protected $_sThisTemplate = 'd3bonimascore_list.tpl';
-
 }

@@ -59,7 +59,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
 
         $aConfig = Registry::getRequest()->getRequestEscapedParameter('config');
 
-        foreach( $aConfig as $sConfigId => $aConfigData ) {
+        foreach ($aConfig as $sConfigId => $aConfigData) {
             $aConfigData['d3bonimascore__shopid']      = Registry::getConfig()->getShopId();
             $aConfigData['d3bonimascore__payments']    = json_encode($aConfigData['payments']);
 
@@ -101,7 +101,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
      */
     public function d3GetPaymentList()
     {
-        if($this->oPayments === null) {
+        if ($this->oPayments === null) {
             $this->oPayments = $this->_d3GetPaymentList();
         }
 

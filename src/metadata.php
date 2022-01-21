@@ -33,10 +33,10 @@ $aModule = [
         'de' => 'Dieses Modul bindet BonimaScoreIdent im Checkout ein.',
         'en' => '',
     ],
-    'version'      => '4.0.0.0',
+    'version'      => '4.0.1.0',
     'author'       => 'D&sup3; Data Development (Inh.: Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
-    'url'          => 'http://www.oxidmodule.com/',
+    'url'          => 'https://www.oxidmodule.com/',
     'events'       => [
         'onActivate'    => '\D3\Bonimascore\setup\Events::onActivate',
         'onDeactivate'  => '\D3\Bonimascore\setup\Events::onDeactivate',
@@ -45,7 +45,7 @@ $aModule = [
         OxidModel\User::class => d3_oxuser_bonimascore::class,
         OxidModel\Order::class => d3_oxorder_bonimascore::class,
         OxidController\PaymentController::class => d3_payment_bonimascore::class,
-        OxidController\UserController::class => d3_user_bonimascore::class
+        OxidController\UserController::class => d3_user_bonimascore::class,
     ],
     'controllers'        => [
         'd3bonimascore_matrix_frame'        => ModuleControllerAdmin\d3bonimascore_matrix_frame::class,
@@ -84,7 +84,7 @@ $aModule = [
             'template'  => 'page/checkout/inc/payment_oxiddebitnote.tpl',
             'block'     => 'checkout_payment_longdesc',
             'file'      => 'Application/views/blocks/page/checkout/inc/checkout_payment_longdesc.tpl',
-        ]
+        ],
     ],
     'templates'    => [
         'd3bonimascore_frame.tpl'        => 'd3/bonimascore/Application/views/admin/frame.tpl',
@@ -102,5 +102,5 @@ $aModule = [
         'd3_bonimascore_mandatory_oxuser__oxstreet.tpl'    => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxstreet.tpl',
         'd3_bonimascore_mandatory_oxuser__oxzip.tpl'       => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxzip.tpl',
         'd3_bonimascore_mandatory_oxuser__oxbirthdate.tpl' => 'd3/bonimascore/Application/views/tpl/mandatoryfields/d3_bonimascore_mandatory_oxbirthdate.tpl',
-    ]
+    ],
 ];

@@ -17,14 +17,22 @@
 
 namespace D3\Bonimascore\Modules\Application\Controller
 {
-    class d3_payment_bonimascore_parent extends \OxidEsales\Eshop\Application\Controller\PaymentController {}
+    class d3_payment_bonimascore_parent extends \OxidEsales\Eshop\Application\Controller\PaymentController
+    {
+    }
 
-    class d3_user_bonimascore_parent extends \OxidEsales\Eshop\Application\Controller\UserController {}
+    class d3_user_bonimascore_parent extends \OxidEsales\Eshop\Application\Controller\UserController
+    {
+    }
 }
 
 namespace D3\Bonimascore\Modules\Application\Model
 {
-    class d3_oxuser_bonimascore_parent extends \OxidEsales\Eshop\Application\Model\User {}
+    class d3_oxuser_bonimascore_parent extends \OxidEsales\Eshop\Application\Model\User
+    {
+    }
 
-    class d3_oxorder_bonimascore_parent extends \OxidEsales\Eshop\Application\Model\Order {}
+    class d3_oxorder_bonimascore_parent extends \OxidEsales\Eshop\Application\Model\Order
+    {
+    }
 }

@@ -19,5 +19,4 @@ namespace D3\Bonimascore\Application\Controller\Admin;
 
 class d3bonimascore_config_list extends d3bonimascore_matrix_list
 {
-
 }

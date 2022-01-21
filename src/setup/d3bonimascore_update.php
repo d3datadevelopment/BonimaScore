@@ -37,44 +37,44 @@ class d3bonimascore_update extends d3install_updatebase
 {
     public $sModKey = 'd3bonimascore';
     public $sModName = 'BonimaScore';
-    public $sModVersion = '4.0.0.0';
-    public $sModRevision = '4000';
-    public $sBaseConf = 'kKLv2==ZnpUTGxhRmp4OUlqeWE4Ylo2OC9GOC91a29DRmxaMWpQdUVIUTNzRG9Xc2ZweVlRVTJYQ2lBR
-jFVOU83eHhSOFJVYSttVFlHWUNHOW9COEMvWWE1MjR2QkxUNGZLQStPWVNGZjFlcThKRzMvVDVHNlp5U
-25JUGlLTy9OTG8xV1p2MnlxNHVpa2UvdExJOHVRbVZlTitYbURjZVpWaEhTWW9JRmNPSGQ1UWtwVWk0a
-EIwaWk0WDFhdHY0NWE0Q1RvUXhhMER4a1picUdiTElRaTJDclRaY0JYSTZKaERDOWxkci8raGV5L0NxN
-UVQcWgyZkVCY2V3ZndPalZVNk9LVjlrVnZKUzRHT3ZhOEFUL3Y2UFpTWWtuSmpxaXVrNUNnVlJ5MFBMR
-TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
+    public $sModVersion = '4.0.1.0';
+    public $sModRevision = '4010';
+    public $sBaseConf = 'AHDv2==UmEwOEI3Y29WTlpBZWlCdTRnYWtvN2Nxd1NGaHpzS1ZoWWlRbWY1aVZQTFZKZk1adHA1c2hub
+WJudDVpYjRPNDl0MnR1R29VbE5LSmQvSFE2VTljenA3VXZRN2pRUUtOV1NsMHlUN1FVanExQTVWZ3l6W
+HB2S1pCTkwwc3RQSW5iWTVHZFpJVktFTDRCb2oyaDB6REkrcFFKK0kxcXB5eUY3OGFaR0hOdC92TmVvc
+G9JTTQySEp1ZHpHYWR3QktmQnFzT2FBaGMzU0lWelNLa3VLemZDU0NBZTJpeG9LT0M1NnRDS0NpUHNnb
+XpQQjVGUFZzSVY5aUlsQUVIU0hFZ1dqVnZQYm9mUHd4OVQ2RXoyUk5VZDRqTGVHZFYvSU4yREVqa0s2T
+UNZMHhpWkdOTWR2aHkyejRqTWVTYVdkc2h1cllvWVNZNG90eUhkV0FTa3dMWnZnPT0=';
     public $sRequirements = '';
     public $sBaseValue = 'TyUzQTglM0ElMjJzdGRDbGFzcyUyMiUzQTYlM0ElN0JzJTNBMzMlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZUNvdW50cnklMjIlM0JzJTNBMjYlM0ElMjJhN2M0MGY2MzFmYzkyMDY4Ny4yMDE3OTk4NCUyMiUzQnMlM0EzMiUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUHJvZElkJTIyJTNCcyUzQTAlM0ElMjIlMjIlM0JzJTNBMzklM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVBvc3RDaGVja1RleHQlMjIlM0JzJTNBMzAlM0ElMjJEM19CT05JTUFTQ09SRV9QQVlDSEVDS19GQUlMRUQlMjIlM0JzJTNBMzAlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVVzZXIlMjIlM0JzJTNBMCUzQSUyMiUyMiUzQnMlM0EzMCUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUGFzcyUyMiUzQnMlM0EwJTNBJTIyJTIyJTNCcyUzQTQzJTNBJTIyZDNfY2ZnX21vZF9fc0QzQm9uaW1hU2NvcmVMaW1pdEV4Y2VlZGVkVGV4dCUyMiUzQnMlM0EzNSUzQSUyMkQzX0JPTklNQVNDT1JFX0NSRURJVExJTUlUX0VYQ0VFREVEJTIyJTNCJTdE';
 
     public $sMinModCfgVersion = '6.0.0.0';
 
-    protected $_aUpdateMethods = array(
-        array('check' => 'checkModCfgItemExist',
-              'do'    => 'updateModCfgItemExist'),
-        array('check' => 'checkBonimaTableExist',
-              'do'    => 'updateBonimaTableExist'),
-        array('check' => 'checkBonimaResponseTableExist',
-              'do'    => 'updateBonimaResponseTableExist'),
-        array('check' => 'checkFields',
-              'do'    => 'fixFields'),
-        array('check' => 'checkIndizes',
-              'do'    => 'fixIndizes'),
-        array('check' => 'checkScoreItemsExist',
-              'do'    => 'updateScoreItemsExist'),
-        array('check' => 'checkValidunc7FromValue',
-              'do'    => 'updateValidunc7FromValue'),
-        array('check' => 'checkInvalid10Values',
-              'do'    => 'updateInvalid10Values'),
-        array('check' => 'hasUnregisteredFiles',
-              'do'    => 'showUnregisteredFiles'),
-        array('check' => 'checkModCfgSameRevision',
-              'do'    => 'updateModCfgSameRevision'),
-    );
+    protected $_aUpdateMethods = [
+        ['check' => 'checkModCfgItemExist',
+              'do'    => 'updateModCfgItemExist', ],
+        ['check' => 'checkBonimaTableExist',
+              'do'    => 'updateBonimaTableExist', ],
+        ['check' => 'checkBonimaResponseTableExist',
+              'do'    => 'updateBonimaResponseTableExist', ],
+        ['check' => 'checkFields',
+              'do'    => 'fixFields', ],
+        ['check' => 'checkIndizes',
+              'do'    => 'fixIndizes', ],
+        ['check' => 'checkScoreItemsExist',
+              'do'    => 'updateScoreItemsExist', ],
+        ['check' => 'checkValidunc7FromValue',
+              'do'    => 'updateValidunc7FromValue', ],
+        ['check' => 'checkInvalid10Values',
+              'do'    => 'updateInvalid10Values', ],
+        ['check' => 'hasUnregisteredFiles',
+              'do'    => 'showUnregisteredFiles', ],
+        ['check' => 'checkModCfgSameRevision',
+              'do'    => 'updateModCfgSameRevision', ],
+    ];
 
-    public $aFields = array(
-        'oxpayments__d3bonimascoresafe'        => array(
+    public $aFields = [
+        'oxpayments__d3bonimascoresafe'        => [
             'sTableName'  => 'oxpayments',
             'sFieldName'  => 'd3bonimascoresafe',
             'sType'       => 'TINYINT(1) UNSIGNED',
@@ -83,8 +83,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'oxuser__d3bonimascoreapproval'        => array(
+        ],
+        'oxuser__d3bonimascoreapproval'        => [
             'sTableName'  => 'oxuser',
             'sFieldName'  => 'd3bonimascoreapproval',
             'sType'       => 'INT(10) UNSIGNED',
@@ -93,8 +93,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => 'Boniversum Einwilligungsklausel',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'oxuser__d3bonimascorecreditlimit'        => array(
+        ],
+        'oxuser__d3bonimascorecreditlimit'        => [
             'sTableName'  => 'oxuser',
             'sFieldName'  => 'd3bonimascorecreditlimit',
             'sType'       => 'double',
@@ -103,8 +103,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => 'Boniversum Kreditlimit',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'oxuser__d3bonimacheckthreshold'        => array(
+        ],
+        'oxuser__d3bonimacheckthreshold'        => [
             'sTableName'  => 'oxuser',
             'sFieldName'  => 'd3bonimacheckthreshold',
             'sType'       => 'INT(5)',
@@ -113,8 +113,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => 'Boniversum Warenkorbwert fuer Pruefung',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'oxuser__d3bonimadontcheck'        => array(
+        ],
+        'oxuser__d3bonimadontcheck'        => [
             'sTableName'  => 'oxuser',
             'sFieldName'  => 'd3bonimadontcheck',
             'sType'       => 'INT(1)',
@@ -123,8 +123,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => 'Boniversum keine Pruefung',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'oxgroups__d3bonimadontcheck'        => array(
+        ],
+        'oxgroups__d3bonimadontcheck'        => [
             'sTableName'  => 'oxgroups',
             'sFieldName'  => 'd3bonimadontcheck',
             'sType'       => 'INT(1)',
@@ -133,8 +133,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => 'Boniversum keine Pruefung',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__OXID'        => array(
+        ],
+        'd3bonimascore__OXID'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'OXID',
             'sType'       => 'CHAR(32)',
@@ -143,8 +143,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__shopid'        => array(
+        ],
+        'd3bonimascore__shopid'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'shopid',
             'sType'       => 'CHAR(10)',
@@ -153,8 +153,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__addressreturncode'        => array(
+        ],
+        'd3bonimascore__addressreturncode'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'addressreturncode',
             'sType'       => "SET('0','1','2','3')",
@@ -163,8 +163,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__identreturncode'        => array(
+        ],
+        'd3bonimascore__identreturncode'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'identreturncode',
             'sType'       => "SET('0','1')",
@@ -173,8 +173,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__scoreconfigurable'        => array(
+        ],
+        'd3bonimascore__scoreconfigurable'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'scoreconfigurable',
             'sType'       => "SET('0','1')",
@@ -183,8 +183,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__scoreclass'        => array(
+        ],
+        'd3bonimascore__scoreclass'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'scoreclass',
             'sType'       => "INT(5) UNSIGNED",
@@ -193,8 +193,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__scorefrom'        => array(
+        ],
+        'd3bonimascore__scorefrom'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'scorefrom',
             'sType'       => "INT(10) UNSIGNED",
@@ -203,8 +203,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__scoreto'        => array(
+        ],
+        'd3bonimascore__scoreto'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'scoreto',
             'sType'       => "INT(10) UNSIGNED",
@@ -213,8 +213,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__negativeprobability'        => array(
+        ],
+        'd3bonimascore__negativeprobability'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'negativeprobability',
             'sType'       => "DOUBLE UNSIGNED",
@@ -223,8 +223,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__payments'        => array(
+        ],
+        'd3bonimascore__payments'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'payments',
             'sType'       => "TEXT",
@@ -233,8 +233,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascore__creditlimit'        => array(
+        ],
+        'd3bonimascore__creditlimit'        => [
             'sTableName'  => 'd3bonimascore',
             'sFieldName'  => 'creditlimit',
             'sType'       => "DOUBLE UNSIGNED",
@@ -243,8 +243,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascoreresponse__OXID'        => array(
+        ],
+        'd3bonimascoreresponse__OXID'        => [
             'sTableName'  => 'd3bonimascoreresponse',
             'sFieldName'  => 'OXID',
             'sType'       => "CHAR(32)",
@@ -253,8 +253,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascoreresponse__OXUSERID'        => array(
+        ],
+        'd3bonimascoreresponse__OXUSERID'        => [
             'sTableName'  => 'd3bonimascoreresponse',
             'sFieldName'  => 'OXUSERID',
             'sType'       => "CHAR(32)",
@@ -263,8 +263,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascoreresponse__response'        => array(
+        ],
+        'd3bonimascoreresponse__response'        => [
             'sTableName'  => 'd3bonimascoreresponse',
             'sFieldName'  => 'response',
             'sType'       => "TEXT",
@@ -273,8 +273,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascoreresponse__date'        => array(
+        ],
+        'd3bonimascoreresponse__date'        => [
             'sTableName'  => 'd3bonimascoreresponse',
             'sFieldName'  => 'date',
             'sType'       => "DATETIME",
@@ -283,8 +283,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-        'd3bonimascoreresponse__d3requesthash'        => array(
+        ],
+        'd3bonimascoreresponse__d3requesthash'        => [
             'sTableName'  => 'd3bonimascoreresponse',
             'sFieldName'  => 'd3requesthash',
             'sType'       => "VARCHAR(255)",
@@ -293,78 +293,78 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             'sComment'    => '',
             'sExtra'      => '',
             'blMultilang' => false,
-        ),
-    );
+        ],
+    ];
 
-    public $aIndizes = array(
-        'PRIMARY' => array(
+    public $aIndizes = [
+        'PRIMARY' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'PRIMARY',
             'sName'      => 'PRIMARY',
-            'aFields'    => array(
+            'aFields'    => [
                 'OXID'   => 'OXID',
-            ),
-        ),
-        'scorefrom' => array(
+            ],
+        ],
+        'scorefrom' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'INDEX',
             'sName'      => 'scorefrom',
-            'aFields'    => array(
+            'aFields'    => [
                 'scorefrom' => 'scorefrom',
-            ),
-        ),
-        'scoreto' => array(
+            ],
+        ],
+        'scoreto' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'INDEX',
             'sName'      => 'scoreto',
-            'aFields'    => array(
+            'aFields'    => [
                 'scoreto' => 'scoreto',
-            ),
-        ),
-        'shopid' => array(
+            ],
+        ],
+        'shopid' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'INDEX',
             'sName'      => 'shopid',
-            'aFields'    => array(
+            'aFields'    => [
                 'shopid' => 'shopid',
-            ),
-        ),
-        'addressreturncode' => array(
+            ],
+        ],
+        'addressreturncode' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'INDEX',
             'sName'      => 'addressreturncode',
-            'aFields'    => array(
+            'aFields'    => [
                 'addressreturncode' => 'addressreturncode',
-            ),
-        ),
-        'identreturncode' => array(
+            ],
+        ],
+        'identreturncode' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'INDEX',
             'sName'      => 'identreturncode',
-            'aFields'    => array(
+            'aFields'    => [
                 'identreturncode' => 'identreturncode',
-            ),
-        ),
-        'scoreclass' => array(
+            ],
+        ],
+        'scoreclass' => [
             'sTableName' => 'd3bonimascore',
             'sType'      => 'INDEX',
             'sName'      => 'scoreclass',
-            'aFields'    => array(
+            'aFields'    => [
                 'scoreclass' => 'scoreclass',
-            ),
-        ),
-        'response__PRIMARY' => array(
+            ],
+        ],
+        'response__PRIMARY' => [
             'sTableName' => 'd3bonimascoreresponse',
             'sType'      => 'PRIMARY',
             'sName'      => 'PRIMARY',
-            'aFields'    => array(
+            'aFields'    => [
                 'OXID'   => 'OXID',
-            ),
-        ),
-    );
+            ],
+        ],
+    ];
 
-    protected $aScoreConfigs = array(
-        array( // row #0
+    protected $aScoreConfigs = [
+        [ // row #0
                'd3bonimascore__oxid' => 'valid0',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -375,8 +375,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1000,
-        ),
-        array( // row #1
+        ],
+        [ // row #1
                'd3bonimascore__oxid' => 'valid1',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -387,8 +387,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 1.33,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 2000,
-        ),
-        array( // row #2
+        ],
+        [ // row #2
                'd3bonimascore__oxid' => 'valid2',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -399,8 +399,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 2.26,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 2000,
-        ),
-        array( // row #3
+        ],
+        [ // row #3
                'd3bonimascore__oxid' => 'valid3',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -411,8 +411,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 3.33,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 2000,
-        ),
-        array( // row #4
+        ],
+        [ // row #4
                'd3bonimascore__oxid' => 'valid4',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -423,8 +423,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 3.02,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 2000,
-        ),
-        array( // row #5
+        ],
+        [ // row #5
                'd3bonimascore__oxid' => 'valid5',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -435,8 +435,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 3.8,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1500,
-        ),
-        array( // row #6
+        ],
+        [ // row #6
                'd3bonimascore__oxid' => 'valid6',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -447,8 +447,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 5.24,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1500,
-        ),
-        array( // row #7
+        ],
+        [ // row #7
                'd3bonimascore__oxid' => 'valid7',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -459,8 +459,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 9.4,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1000,
-        ),
-        array( // row #8
+        ],
+        [ // row #8
                'd3bonimascore__oxid' => 'valid8',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -471,8 +471,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 10.31,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1000,
-        ),
-        array( // row #9
+        ],
+        [ // row #9
                'd3bonimascore__oxid' => 'valid9',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -483,8 +483,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 19.59,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 500,
-        ),
-        array( // row #10
+        ],
+        [ // row #10
                'd3bonimascore__oxid' => 'valid9900',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -495,8 +495,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #11
+        ],
+        [ // row #11
                'd3bonimascore__oxid' => 'valid9800',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -507,8 +507,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #12
+        ],
+        [ // row #12
                'd3bonimascore__oxid' => 'valid9700',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -519,8 +519,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #13
+        ],
+        [ // row #13
                'd3bonimascore__oxid' => 'valid9600',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -531,8 +531,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #14
+        ],
+        [ // row #14
                'd3bonimascore__oxid' => 'valid9500',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -543,8 +543,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #15
+        ],
+        [ // row #15
                'd3bonimascore__oxid' => 'valid9400',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -555,8 +555,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #16
+        ],
+        [ // row #16
                'd3bonimascore__oxid' => 'valid9300',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '1',
@@ -567,8 +567,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #17
+        ],
+        [ // row #17
                'd3bonimascore__oxid' => 'validunc0',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -579,8 +579,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #18
+        ],
+        [ // row #18
                'd3bonimascore__oxid' => 'validunc1',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -591,8 +591,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 1.33,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1500,
-        ),
-        array( // row #19
+        ],
+        [ // row #19
                'd3bonimascore__oxid' => 'validunc2',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -603,8 +603,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 2.26,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1500,
-        ),
-        array( // row #20
+        ],
+        [ // row #20
                'd3bonimascore__oxid' => 'validunc3',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -615,8 +615,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 3.33,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1500,
-        ),
-        array( // row #21
+        ],
+        [ // row #21
                'd3bonimascore__oxid' => 'validunc4',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -627,8 +627,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 3.02,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1000,
-        ),
-        array( // row #22
+        ],
+        [ // row #22
                'd3bonimascore__oxid' => 'validunc5',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -639,8 +639,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 3.8,
                'd3bonimascore__payments' => '["oxiddebitnote","oxidcreditcard","oxidcashondel","oxidinvoice","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 1000,
-        ),
-        array( // row #23
+        ],
+        [ // row #23
                'd3bonimascore__oxid' => 'validunc6',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -651,8 +651,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 5.24,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #24
+        ],
+        [ // row #24
                'd3bonimascore__oxid' => 'validunc7',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -663,8 +663,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 9.4,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #25
+        ],
+        [ // row #25
                'd3bonimascore__oxid' => 'validunc8',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -675,8 +675,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 10.31,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #26
+        ],
+        [ // row #26
                'd3bonimascore__oxid' => 'validunc9',
                'd3bonimascore__addressreturncode' => '1,2',
                'd3bonimascore__identreturncode' => '0',
@@ -687,8 +687,8 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 19.59,
                'd3bonimascore__payments' => '["oxidcreditcard","oxidcashondel","oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-        array( // row #27
+        ],
+        [ // row #27
                'd3bonimascore__oxid' => 'invalid10',
                'd3bonimascore__addressreturncode' => '0,3',
                'd3bonimascore__identreturncode' => '0,1',
@@ -699,10 +699,10 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
                'd3bonimascore__negativeprobability' => 0,
                'd3bonimascore__payments' => '["oxidpayadvance"]',
                'd3bonimascore__creditlimit' => 0,
-        ),
-    );
+        ],
+    ];
 
-    protected $_aRefreshMetaModuleIds = array('d3bonimascore');
+    protected $_aRefreshMetaModuleIds = ['d3bonimascore'];
 
     /**
      * @return bool
@@ -773,10 +773,10 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             foreach ($this->aScoreConfigs as $aConfig) {
                 /** @var $oShop Shop */
-                $aWhere = array(
+                $aWhere = [
                     'OXID' => md5($aConfig['d3bonimascore__oxid']." " . $oShop->getId()),
                     'shopid' => $oShop->getId(),
-                );
+                ];
                 $blRet = $this->_checkTableItemNotExist('d3bonimascore', $aWhere);
 
                 if ($blRet) {
@@ -802,83 +802,83 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             foreach ($this->aScoreConfigs as $aConfig) {
                 /** @var $oShop Shop */
-                $aWhere = array(
-                    'OXID'   => md5( $aConfig['d3bonimascore__oxid']." " . $oShop->getId() ),
+                $aWhere = [
+                    'OXID'   => md5($aConfig['d3bonimascore__oxid']." " . $oShop->getId()),
                     'shopid' => $oShop->getId(),
-                );
+                ];
 
                 if ($this->_checkTableItemNotExist('d3bonimascore', $aWhere)) {
-                    $aWhere        = array();
-                    $aInsertFields = array(
-                        array(
+                    $aWhere        = [];
+                    $aInsertFields = [
+                        [
                             'fieldname'    => 'OXID',
                             'content'      => "md5('".$aConfig['d3bonimascore__oxid']." " . $oShop->getId() . "')",
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'shopid',
                             'content'      => $oShop->getId(),
                             'force_update' => true,
                             'use_quote'    => true,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'addressreturncode',
                             'content'      => $aConfig['d3bonimascore__addressreturncode'],
                             'force_update' => true,
                             'use_quote'    => true,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'identreturncode',
                             'content'      => $aConfig['d3bonimascore__identreturncode'],
                             'force_update' => true,
                             'use_quote'    => true,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'scoreconfigurable',
                             'content'      => $aConfig['d3bonimascore__scoreconfigurable'],
                             'force_update' => true,
                             'use_quote'    => true,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'scoreclass',
                             'content'      => $aConfig['d3bonimascore__scoreclass'],
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'scorefrom',
                             'content'      => $aConfig['d3bonimascore__scorefrom'],
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'scoreto',
                             'content'      => $aConfig['d3bonimascore__scoreto'],
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'negativeprobability',
                             'content'      => $aConfig['d3bonimascore__negativeprobability'],
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'payments',
                             'content'      => $aConfig['d3bonimascore__payments'],
                             'force_update' => true,
                             'use_quote'    => true,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'creditlimit',
                             'content'      => $aConfig['d3bonimascore__creditlimit'],
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                    );
+                        ],
+                    ];
 
-                    $this->setInitialExecMethod( __METHOD__ );
+                    $this->setInitialExecMethod(__METHOD__);
                     $blRet = $this->_updateTableItem2('d3bonimascore', $aInsertFields, $aWhere);
                 }
             }
@@ -900,7 +900,7 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             $query = "SELECT count(*) FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('validunc7', ' ', ".$oShop->getId().")) AND scorefrom = '952'";
             if ((bool) DatabaseProvider::getDb()->getOne($query)) {
                 return true;
-            };
+            }
         }
 
         return false;
@@ -917,21 +917,23 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
     {
         $score = oxNew(d3bonimascore::class);
 
+        $blRet = false;
+
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             $query = "SELECT oxid FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('validunc7', ' ', ".$oShop->getId().")) AND scorefrom = '952'";
             foreach (DatabaseProvider::getDb()->getAll($query) as $fields) {
                 $fields = array_change_key_case($fields, CASE_UPPER);
                 $blRet = $this->_updateTableItem2(
                     $score->getCoreTableName(),
-                    array(
-                        array(
+                    [
+                        [
                             'fieldname'    => 'scorefrom',
                             'content'      => 925,
                             'force_update' => true,
                             'use_quote'    => false,
-                        )
-                    ),
-                    array('OXID'    => $fields['OXID'])
+                        ],
+                    ],
+                    ['OXID'    => $fields['OXID']]
                 );
                 if ($blRet == false) {
                     break;
@@ -955,7 +957,7 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
             $query = "SELECT count(*) FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('invalid10', ' ', ".$oShop->getId().")) AND scorefrom = '0' AND scoreto = '10000'";
             if ((bool) DatabaseProvider::getDb()->getOne($query)) {
                 return true;
-            };
+            }
         }
 
         return false;
@@ -972,27 +974,29 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
     {
         $score = oxNew(d3bonimascore::class);
 
+        $blRet = false;
+
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             $query = "SELECT oxid FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('invalid10', ' ', ".$oShop->getId().")) AND scorefrom = '0' AND scoreto = '10000'";
             foreach (DatabaseProvider::getDb()->getAll($query) as $fields) {
                 $fields = array_change_key_case($fields, CASE_UPPER);
                 $blRet = $this->_updateTableItem2(
                     $score->getCoreTableName(),
-                    array(
-                        array(
+                    [
+                        [
                             'fieldname'    => 'scorefrom',
                             'content'      => 10000,
                             'force_update' => true,
                             'use_quote'    => false,
-                        ),
-                        array(
+                        ],
+                        [
                             'fieldname'    => 'scoreto',
                             'content'      => 0,
                             'force_update' => true,
                             'use_quote'    => false,
-                        )
-                    ),
-                    array('OXID'    => $fields['OXID'])
+                        ],
+                    ],
+                    ['OXID'    => $fields['OXID']]
                 );
                 if ($blRet == false) {
                     break;
@@ -1015,7 +1019,7 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
      */
     public function hasUnregisteredFiles()
     {
-        return $this->_hasUnregisteredFiles('d3bonimascore', array('blocks', 'd3FileRegister'));
+        return $this->_hasUnregisteredFiles('d3bonimascore', ['blocks', 'd3FileRegister']);
     }
 
     /**
@@ -1029,6 +1033,6 @@ TIwZWZVRlZJK054WTltWkFxc3Vmb2lMM0tjWEhMTzQzUWtVS3VYK0hsY0RxaWtnPT0=';
      */
     public function showUnregisteredFiles()
     {
-        return $this->_showUnregisteredFiles('d3bonimascore', array('blocks', 'd3FileRegister'));
+        return $this->_showUnregisteredFiles('d3bonimascore', ['blocks', 'd3FileRegister']);
     }
 }

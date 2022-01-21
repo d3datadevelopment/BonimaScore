@@ -54,8 +54,8 @@ class d3bonimascore_config_main extends d3_cfg_mod_main
 
         $aData = Registry::getRequest()->getRequestEscapedParameter('oxconfig');
         if (is_array($aData) && count($aData)) {
-            foreach ( $aData as $sName => $sValue ) {
-                Registry::getConfig()->saveShopConfVar('str', $sName, $sValue );
+            foreach ($aData as $sName => $sValue) {
+                Registry::getConfig()->saveShopConfVar('str', $sName, $sValue);
             }
         }
 

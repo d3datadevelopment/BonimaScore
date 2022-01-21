@@ -17,7 +17,7 @@
 
 $sLangName  = "Deutsch";
 
-$aLang = array(
+$aLang = [
     'charset'                                      => 'UTF-8',
     'd3bonimascore'                                => '<i class="fa fa-balance-scale"></i> BonimaScore',
     'd3bonimascore_manage'                         => 'Entscheidungsmatrix',
@@ -140,4 +140,4 @@ $aLang = array(
     'D3_BONIMASCORE_EXCLUDEGROUPFROMCHECK'         => 'alle Kunden dieser Gruppe werden durch Boniversum nicht geprüft',
     'D3_BONIMASCORE_ADMIN_HLOPTIONNOTACTIVE'       => '(Option nicht aktiv)',
     'D3_BONIMASCORE_PAYMENTS_PLEASE_CHOOSE'        => 'Bitte wählen Sie',
-);
+];

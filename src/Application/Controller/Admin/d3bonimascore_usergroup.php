@@ -33,8 +33,8 @@ use OxidEsales\Eshop\Core\Registry;
 
 class d3bonimascore_usergroup extends AdminController
 {
-	/** @var d3bonimascoreResponse */
-	public $bonimaresponse;
+    /** @var d3bonimascoreResponse */
+    public $bonimaresponse;
     /**
      * Current class template.
      *
@@ -42,7 +42,7 @@ class d3bonimascore_usergroup extends AdminController
      */
     protected $_sThisTemplate = 'd3bonimascore_usergroup.tpl';
 
-	/**
+    /**
      * @return string
      */
     public function render()
@@ -52,7 +52,7 @@ class d3bonimascore_usergroup extends AdminController
         $soxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
 
         if ($soxId != "-1" && isset($soxId)) {
-            $oGroups = oxNew( Groups::class);
+            $oGroups = oxNew(Groups::class);
             $oGroups->load($soxId);
             $this->_aViewData["edit"] = $oGroups;
         }

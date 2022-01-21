@@ -36,8 +36,8 @@ use OxidEsales\Eshop\Core\Registry;
 
 class d3bonimascore_user extends AdminController
 {
-	/** @var d3bonimascoreResponse */
-	public $bonimaresponse;
+    /** @var d3bonimascoreResponse */
+    public $bonimaresponse;
     /**
      * Current class template.
      *
@@ -81,12 +81,12 @@ class d3bonimascore_user extends AdminController
                 ->setMaxResults(1);
 
             if ($sResponse = $oDb->getOne($oQB->getSQL(), $oQB->getParameters())) {
-            	$oResponse = oxNew(d3bonimascoreResponse::class);
-            	$oResponse->assign(
-            		array(
-            			'response'  => $sResponse
-		            )
-	            );
+                $oResponse = oxNew(d3bonimascoreResponse::class);
+                $oResponse->assign(
+                    [
+                        'response'  => $sResponse,
+                    ]
+                );
                 $this->bonimaresponse =  $oResponse;
             }
         }
@@ -110,7 +110,7 @@ class d3bonimascore_user extends AdminController
         }
     }
 
-	/**
+    /**
      * @return false|d3bonimascore
      * @throws DBALException
      * @throws DatabaseConnectionException
@@ -135,8 +135,8 @@ class d3bonimascore_user extends AdminController
         return $oBonimaScore;
     }
 
-	/**
-	 * @return false|string
+    /**
+     * @return false|string
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -153,8 +153,8 @@ class d3bonimascore_user extends AdminController
         return $this->bonimaresponse->getResponseData()->return->auskunft->module->adresskontrollModul->adresskontrollen->adresskontrolle->adresse;
     }
 
-	/**
-	 * return string|false
+    /**
+     * return string|false
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -171,8 +171,8 @@ class d3bonimascore_user extends AdminController
         return $this->bonimaresponse->getResponseData()->return->auskunft->module->auftragModul->eingabedaten->person;
     }
 
-	/**
-	 * @return string|false
+    /**
+     * @return string|false
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -187,11 +187,10 @@ class d3bonimascore_user extends AdminController
         }
 
         return $this->bonimaresponse->getResponseData()->return->auskunft->module->adresskontrollModul->adresskontrollen->adresskontrolle->adressvalidierungsstatusGrob;
-
     }
 
-	/**
-	 * @return string|false
+    /**
+     * @return string|false
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -206,11 +205,10 @@ class d3bonimascore_user extends AdminController
         }
 
         return $this->bonimaresponse->getResponseData()->return->auskunft->module->identModul;
-
     }
 
-	/**
-	 * @return array|null
+    /**
+     * @return array|null
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -232,8 +230,8 @@ class d3bonimascore_user extends AdminController
         return $aDetails;
     }
 
-	/**
-	 * @return false|int
+    /**
+     * @return false|int
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException

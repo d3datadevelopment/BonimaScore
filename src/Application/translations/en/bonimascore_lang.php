@@ -17,7 +17,7 @@
 
 $sLangName = "English";
 
-$aLang = array(
+$aLang = [
     'charset' => 'UTF-8',
 
     'D3_BONIMASCORE_SELECT_SALUTATION' => 'Please select',
@@ -51,4 +51,4 @@ $aLang = array(
     'D3_BONIMASCORE_ZIP_INVALID'        => 'Please enter a valid postal code.',
     'D3_BONIMASCORE_CITY_INVALID'       => 'Please enter a valid city.',
     'D3_BONIMASCORE_BIRTHDAY_INVALID'   => 'Please enter a valid birthdate.',
-);
+];

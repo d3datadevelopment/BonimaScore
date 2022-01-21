@@ -5,14 +5,14 @@
     <!--
     function editThis( sID )
     {
-        var oTransfer = top.basefrm.edit.document.getElementById( "transfer" );
+        let oTransfer = top.basefrm.edit.document.getElementById( "transfer" );
         oTransfer.oxid.value = sID;
         oTransfer.cl.value = top.basefrm.list.sDefClass;
 
         //forcing edit frame to reload after submit
         top.forceReloadingEditFrame();
 
-        var oSearch = top.basefrm.list.document.getElementById( "search" );
+        let oSearch = top.basefrm.list.document.getElementById( "search" );
         oSearch.oxid.value = sID;
         oSearch.actedit.value = 0;
         oSearch.submit();
@@ -23,7 +23,7 @@
             [{if $updatelist == 1}]
             top.oxid.admin.updateList('[{$oxid}]');
             [{/if}]
-            var oField = top.oxid.admin.getLockTarget();
+            let oField = top.oxid.admin.getLockTarget();
             oField.onchange = oField.onkeyup = oField.onmouseout = top.oxid.admin.unlockSave;
         }
     [{/if}]

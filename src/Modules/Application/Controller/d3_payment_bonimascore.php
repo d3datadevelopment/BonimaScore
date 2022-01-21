@@ -167,7 +167,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
 
         $fields = $this->d3GetNotRequestedMandatoryFields();
         foreach ($replaces as $search => $replace) {
-            if ( false !== $fieldIdent = array_search( $search, $fields ) ) {
+            if (false !== $fieldIdent = array_search($search, $fields)) {
                 $fields[ $fieldIdent ] = $replace;
             }
         }
@@ -219,7 +219,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
      */
     protected function _d3BonimaScorePreCheckPayments()
     {
-        $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'preCheck','execute pre check');
+        $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'preCheck', 'execute pre check');
 
         Registry::getSession()->deleteVariable('d3BonimaScorePaymentFailed');
         Registry::getSession()->deleteVariable('d3BonimaScoreDelAddrFailed');
@@ -311,7 +311,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
     {
         /** @var d3_oxuser_bonimascore $oUser */
         $oUser = $this->getUser();
-        return Registry::getSession()->getVariable( 'd3BonimaScorePaymentFailed')
+        return Registry::getSession()->getVariable('d3BonimaScorePaymentFailed')
             || $oUser->d3BonimaScoreGetSavedResponse();
     }
 
@@ -326,7 +326,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    protected function _d3BonimaScoreRemovePaymentsByConfig(d3bonimascore $oConfig )
+    protected function _d3BonimaScoreRemovePaymentsByConfig(d3bonimascore $oConfig)
     {
         $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'removePayments', 'apply config ' . $oConfig->getId());
 
@@ -342,7 +342,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
         ) {
             $sUnAllowedPayments = trim($this->_d3GetSettings()->getValue('sD3BoniScoreDelAddrForbPayments'));
 
-            $aUnAllowedPayments = array();
+            $aUnAllowedPayments = [];
             if (strlen($sUnAllowedPayments)) {
                 $aUnAllowedPayments = explode('|', $sUnAllowedPayments);
             }
@@ -379,7 +379,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
         $oPaymentList = $this->getPaymentList();
 
         /** @var Payment $oPayment */
-        foreach($oPaymentList as $sIndex => $oPayment) {
+        foreach ($oPaymentList as $sIndex => $oPayment) {
             if (!in_array($oPayment->getId(), $aAllowedPayments)) {
                 $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'getWhitelistedPayments', 'remove payment '.$oPayment->getFieldData('oxdesc'));
                 unset($oPaymentList[$sIndex]);
@@ -415,7 +415,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
             return [
                 'year'  => '0000',
                 'month' => '00',
-                'day'   => '00'
+                'day'   => '00',
             ];
         }
 
@@ -424,7 +424,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
         return [
             'year'  => $date->format('Y'),
             'month' => $date->format('m'),
-            'day'   => $date->format('d')
+            'day'   => $date->format('d'),
         ];
     }
 }
