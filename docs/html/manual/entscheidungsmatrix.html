@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="no-js" lang="de">
+<head>
+    <title>Entscheidungsmatrix -  BonimaScore</title>
+        <meta name="description" content="">
+    <meta name="author" content="D³ Data Development">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="../themes/d3/img/favicon.png" type="image/x-icon">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/d3/css/theme-blue.min.css' rel='stylesheet' type='text/css'><link href='../themes/d3/css/d3.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="../themes/d3/js/html5shiv-3.7.3.min.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html"><i class='fab fa-d3 d3fa-color-blue'></i> BonimaScore</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Suchen..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../manual/entscheidungsmatrix.html">Entscheidungsmatrix</a></li><li class='Nav__item '><a href="../manual/letzterscore.html">Ratingergebnis</a></li></ul>
+            
+
+
+            <div class="Links">
+                <hr/>
+                <a href="https://www.oxidmodule.com" target="_blank">Shop</a><br />
+                <a href="https://blog.oxidmodule.com" target="_blank">Blog</a><br />
+                <a href="https://faq.d3data.de" target="_blank">FAQ</a><br />
+                <a href="https://docs.oxidmodule.com" target="_blank">Dokumentationen</a><br />
+                <a href="https://support.oxidmodule.com" target="_blank">D³ Support Center</a><br />
+                <a href="https://www.oxidmodule.com/kontakt" target="_blank">Kontakt</a><br />
+                <a href="https://www.oxidmodule.com/impressum" target="_blank">Impressum</a><br />
+                            </div>
+
+            
+                
+                        </div>
+    </aside>
+    <div class="Columns__right Columns__right--full">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../manual/entscheidungsmatrix.html">Entscheidungsmatrix</a></h1>
+                <span class="ModifiedDate">
+                        15.06.2022        </span>
+                    </div>
+
+    <div class="s-content">
+        <h1 id="page_Die-Entscheidungsmatrix-verstehen">Die Entscheidungsmatrix verstehen</h1>
+<p>Boniversum liefert einen ganzen Strauss an Informationen. Aus diesem sind für uns 3 Werte in dieser Reihenfolge wichtig:</p>
+<ul>
+<li>Adressvalidierung</li>
+<li>Personenvalidierung</li>
+<li>Score</li>
+</ul>
+<h2 id="page_Adressvalidierung">Adressvalidierung</h2>
+<h3 id="page_Erklarung">Erklärung</h3>
+<p>Hiermit definiert Boniversum, ob die eingegebene Adresse bekannt ist. Boniversum kennt mit Sicherheit den allergrößten Teil aller Adressen.</p>
+<h3 id="page_Grunde-fur-Versagen">Gründe für Versagen</h3>
+<p>Schlägt diese Prüfung fehl (liefert also &quot;nicht validiert&quot;), handelt es sich wohl um eine Fakeadresse. Neubaugebiete dürften ebenfalls in die Gruppe fallen, jedoch wahrscheinlich schnell hinzugefügt werden, weshalb man dies sicher außer Acht lassen kann.</p>
+<h3 id="page_Zuordnung-in-der-Entscheidungsmatrix">Zuordnung in der Entscheidungsmatrix</h3>
+<p>Die Zuordnung der Zahlungsarten auf Grund der Adressvalidierung können Sie innerhalb der Matrix in der ersten Spalte einsehen.
+Die erste Zeile behandelt alle, deren Adresse nicht bekannt ist. Alle Personen mit erkannten Adressen werden in den Folgezeilen behandelt.</p>
+<h3 id="page_Schlusse">Schlüsse</h3>
+<p>Bei unvalidierter Adresse werden keine weiteren Prüfungen durchgeführt. Dieser Personengruppe sollten Sie keine ausfallkritischen Zahlungsarten anbieten, da Fakeadresen sicher auf Betrugsverdacht hindeuten.</p>
+<h2 id="page_Personenvalidierung">Personenvalidierung</h2>
+<h3 id="page_Prufhistorie">Prüfhistorie</h3>
+<p>Die angegeben Adresse muss erkannt worden sein.</p>
+<h3 id="page_Erklarung-2">Erklärung</h3>
+<p>Boniversum hat Informationen zu allen Personen, die irgendeine Kredithistorie haben. Dazu reicht schon ein Handyvertrag oder eine Kontoeröffnungsanfrage bei einer Bank. Auch Ratenzahlungsvereinbarungen und Kreditkartenbesitz fließen in die Datenbank ein. Geschätzt dürften mehr als 3/4 der gesamten Bevölkerung in diesen Daten zu finden sein.</p>
+<h3 id="page_Grunde-fur-das-Versagen">Gründe für das Versagen</h3>
+<p>Wer als Person der Schufa / Boniversum nicht bekannt ist, ist entweder zu jung, dass sie noch keine schufarelevanten Transaktionen getätigt hat oder diese Person gibt es tatsächlich nicht (Fakeaccount).</p>
+<h3 id="page_Zuordnung-in-der-Entscheidungsmatrix-2">Zuordnung in der Entscheidungsmatrix</h3>
+<p>Das Ergebnis der Personenvalidierung finden Sie in der Matrix in Spalte 2. Das untere Drittel der Liste beschäftigt sich mit nicht identifizierbaren Personen. Die oberen 2 Drittel der Liste zeigen Einstellungen zu identifizierten Personen.</p>
+<h3 id="page_Schlusse-2">Schlüsse</h3>
+<p>Boniversum gibt Empfehlungen auf Basis vorhandener Erkenntnisse sowie auch auf weichen Kriterien ab. Kann eine Person nicht identfiziert werden, fehlen jegliche historischen Daten. Hier können nur allgemeine Daten (z.B. Wohnort, Wohngegend, geschätztes Alter) als Kriterium herhalten. Dementsprechend schwierig wird auch eine Bonitätsaussage zu treffen sein. Daher sollten Sie alle nicht identfizierten Personen unabhängig ihres Scores misstrauisch betrachten. In dieser Gruppe dürften sich die meisten Betrugsversuche finden. Die angegeben Untereinträge mit verschiedenen Ausfallwahrscheinlichkeiten sind nur Feinabstufungen, die in dieser Gruppe kaum relevant sein dürften.</p>
+<h2 id="page_Score">Score</h2>
+<h3 id="page_Prufhistorie-2">Prüfhistorie</h3>
+<p>Die angegeben Adresse muss erkannt worden sein. Die Personenidentifizierung ist egal, da für beide Gruppen ein Score geliefert wird.</p>
+<h3 id="page_Erklarung-2">Erklärung</h3>
+<p>Boniversum versucht die Ausfallwahrscheinlichkeit auf Grund der vorliegenden Daten zu schätzen.
+Hierzu werden generische Daten (z.B. Wohnort, Wohngegend, geschätztes Alter) herangezogen. Sofern der Benutzer identifiziert werden konnte, fließen auch Daten zur persönliche Kredithistorie in den Score mit ein. Je nach Datenlagen (Person identifiziert / nicht identifiziert) können Sie einschätzen, wie verlässlich der Score sein wird.</p>
+<h3 id="page_Grunde-fur-das-Versagen-2">Gründe für das Versagen</h3>
+<p>Den Score gibt es in 2 Ausprägungen:</p>
+<ul>
+<li>als 5-stellig Zahl. Dann wurde in der Vergangenheit schon einmal der Rechtsweg beschritten, um Zahlungen einzufordern. Wenn Pfändungen, Urteile oder Gerichtsvollzieher im Spiel sind, sollten Sie auf das Anbieten kritischer Zahlungsarten verzichten. Diese Scores kann es nur bei identifizierten Personen geben.</li>
+<li>als 3- bis 4-stellige Zahl. Wir prüfen den Bereich von 563 bis 1079. Je höher der Score des Benutzers liegt, umso weniger Zahlungsausfall ist zu befürchten. Ein niedriger Score lässt auf Zahlungsschwierigkeiten in der Vergangenheit schließen. Es kann aber auch der Rest eines beendeten Insolvenzverfahrens sein, welches selbst nach Abschluss noch mehrere Jahre in der Historie verwendet wird (Löschfrist dafür aktuell: 3 Jahre). Selbst ungünstige Wohnadressen haben Einfluss auf den Score. Personen mit Scorehöchstwerten sind reine Theorie und kommen praktisch nicht vor.</li>
+</ul>
+<h3 id="page_Zuordnung-in-der-Entscheidungsmatrix-2">Zuordnung in der Entscheidungsmatrix</h3>
+<p>Die Scorewertzuordnung finden Sie in Spalte 3 mit von-/bis-Gruppen bzw. absoluten Werten. Diese Werte gibt es meistens doppelt in der Liste. Einmal für validierte Personen und auch für unvalidierte Personen. Je nach Ergebnis der Personenvalidierung verwenden Sie bitte den jeweils passenden Eintrag.</p>
+<h3 id="page_Schlusse-2">Schlüsse</h3>
+<p>Unvalidierten Personen sollten Sie unabhängig vom Score keine kritischen Zahlungsarten erlauben. Bei validierten Personen entscheiden Sie anhand der Scoregruppe, welches Vertrauen Sie den jeweiligen Kunden entgegenbringen. Hier können Sie Abstufungen zwischen den einzelnen Gruppen machen.</p>
+<h2 id="page_Konfiguration">Konfiguration</h2>
+<p>Haben Sie anhand der 3 Kriterien den passenden Eintrag in der Matrix finden können, markieren Sie dort alle nutzbaren Zahlungsarten und das verfügbare Kreditlimit.</p>
+<h2 id="page_Weitere-Filtermoglichkeiten">Weitere Filtermöglichkeiten</h2>
+<p>Unabhäng der Entscheidungsmatrix können Sie auch an den Zahlungsarten selbst weitere Bedingungen definieren, ab wann eine Bezahlart zur Verfügung stehen soll. So können Sie auch Kunden mit mittelmäßigem Score eine kritische Zahlungsart anbieten, wenn diese z.B. nur auf kleine Warenkörbe angewendet werden kann. Oder Sie Sie bieten Zahlungsarten z.B. erst ab der 2. Bestellung an (Kundengruppe kleiner, mittlerer, großer Umsatz). Damit reduzieren Sie das Ausfallrisiko weiter.</p>
+<h2 id="page_Weitere-Anmerkungen">Weitere Anmerkungen</h2>
+<p>Wenn dem Kunden eine unsichere Zahlungsart auf Grund der Boniversummatrix verwehrt wird, stehen diesem meist noch sichere Zahlungsarten zur Verfügung (Vorauskasse, Nachnahme, Kreditkarte). Dass jemand wegen einer nicht optimalen Bonität überhaupt nicht bestellen kann, kommt im Alltag kaum vor. Das sollte also kein Grund sein, als Händler zu viel Risiko auf sich zu nehmen.</p>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../installation/Deinstallation/TMP-Ordner_leeren.html">Zurück</a></li>            <li class=Pager--next><a href="../manual/letzterscore.html">Weiter</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JS -->
+<script src="../themes/d3/js/jquery-1.11.3.min.js"></script><script src="../themes/d3/js/highlight.pack.js"></script><script src="../themes/d3/js/daux.js"></script><script src="../themes/d3/js/fontawesome-all.js"></script>
+    <!-- Tipue Search -->
+    <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+    <script>
+        window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+        $(function() {
+            tipuesearch({
+                'base_url': '../'
+            });
+        });
+    </script>
+
+</body>
+</html>
