@@ -2,6 +2,12 @@
 title: Changelog
 ---
 
+## 3.2.0.0 - 2022-06-15
+### Added
+- Nachbehandlung des Scores auf Basis der verwendeten Top Level Domain möglich
+
+---
+
 ## 3.1.1.0 - 2021-06-21
 ### Added
 - installierbar in OXID 6.2.3 und 6.2.4

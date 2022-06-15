@@ -163,7 +163,7 @@
                                             <label for="scorevalue">[{oxmultilang ident="D3_BONIMASCORE_USER_SCOREVALUE"}]</label>
                                         </td>
                                         <td class="edittext">
-                                            <input type="text" class="editinput" id="scorevalue" size="37" value="[{$aDetails.scores->score->wert}] ([{$aDetails.scores->score->scoreTyp->value}])" readonly disabled>
+                                            <input type="text" class="editinput" id="scorevalue" size="37" value="[{$oView->getBonimaScoreValue(true)}] ([{$aDetails.scores->score->scoreTyp->value}]) [{if $oView->getBonimaScoreValue() != $oView->getBonimaScoreValue(true)}] -> [{$oView->getBonimaScoreValue()}] ([{oxmultilang ident="D3_BONIMASCORE_ADMIN_TREATED"}])[{/if}]" readonly disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -225,27 +225,24 @@
                                         </td>
                                     </tr>
                                 [{/if}]
-                                [{if $oView->hasPremiumOption()}]
-                                    <tr>
-                                        <td class="edittext" width="90">
-                                            <strong><label for="d3bonimadontcheck">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEFROMCHECK"}]</label></strong>
-                                        </td>
-                                        <td class="edittext">
-                                            <input type="hidden" name="editval[oxuser__d3bonimadontcheck]" value="0">
-                                            <input class="edittext" type="checkbox" id="d3bonimadontcheck" name="editval[oxuser__d3bonimadontcheck]" value="1" [{if $edit->getFieldData('d3bonimadontcheck')}]checked="checked"[{/if}] [{$readonly}]>
-                                        </td>
-                                    </tr>
-                                [{else}]
-                                    <tr>
-                                        <td class="edittext" width="90">
-                                            <label for="d3bonimadontcheck">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEFROMCHECK"}]</label>
-                                        </td>
-                                        <td class="edittext">
-                                            <input type="hidden" name="editval[oxuser__d3bonimadontcheck]" value="0">
-                                            <input class="edittext" type="checkbox" id="d3bonimadontcheck" name="editval[oxuser__d3bonimadontcheck]" value="1" [{if $edit->getFieldData('d3bonimadontcheck')}]checked="checked"[{/if}] disabled>
-                                        </td>
-                                    </tr>
-                                [{/if}]
+                                <tr>
+                                    <td class="edittext" width="90">
+                                        <label for="d3bonimadonttreat" style="[{if $oView->hasPremiumOption()}]font-weight: bold;[{/if}]">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEFROMTREATMENT"}]</label>
+                                    </td>
+                                    <td class="edittext">
+                                        <input type="hidden" name="editval[oxuser__d3bonimadonttreat]" value="0">
+                                        <input class="edittext" type="checkbox" id="d3bonimadonttreat" name="editval[oxuser__d3bonimadonttreat]" value="1" [{if $edit->getFieldData('d3bonimadonttreat')}]checked="checked"[{/if}] [{if $oView->hasPremiumOption()}][{$readonly}][{else}]disabled[{/if}]>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="edittext" width="90">
+                                        <label for="d3bonimadontcheck" style="[{if $oView->hasPremiumOption()}]font-weight: bold;[{/if}]">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEFROMCHECK"}]</label>
+                                    </td>
+                                    <td class="edittext">
+                                        <input type="hidden" name="editval[oxuser__d3bonimadontcheck]" value="0">
+                                        <input class="edittext" type="checkbox" id="d3bonimadontcheck" name="editval[oxuser__d3bonimadontcheck]" value="1" [{if $edit->getFieldData('d3bonimadontcheck')}]checked="checked"[{/if}] [{if $oView->hasPremiumOption()}][{$readonly}][{else}]disabled[{/if}]>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td class="edittext">
                                     </td>

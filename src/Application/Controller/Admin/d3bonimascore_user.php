@@ -135,6 +135,26 @@ class d3bonimascore_user extends AdminController
         return $oBonimaScore;
     }
 
+    /**
+     * @param false $raw
+     *
+     * @return false|int
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function getBonimaScoreValue($raw = false)
+    {
+        if (false == $this->bonimaresponse) {
+            return false;
+        }
+
+        return $this->bonimaresponse->d3GetScoreValue($raw);
+    }
+
 	/**
 	 * @return false|string
      * @throws DBALException
