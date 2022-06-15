@@ -21,27 +21,24 @@
                     <tr>
                         <td valign="top" width="100%">
                             <table cellspacing="0" cellpadding="0" border="0">
-                                [{if $oView->hasPremiumOption()}]
-                                    <tr>
-                                        <td class="edittext" width="90">
-                                            <strong><label for="d3bonimadontcheck">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEGROUPFROMCHECK"}]</label></strong>
-                                        </td>
-                                        <td class="edittext">
-                                            <input type="hidden" name="editval[oxgroups__d3bonimadontcheck]" value="0">
-                                            <input class="edittext" id="d3bonimadontcheck" type="checkbox" name="editval[oxgroups__d3bonimadontcheck]" value="1" [{if $edit->oxgroups__d3bonimadontcheck->value}]checked="checked"[{/if}] [{$readonly}]>
-                                        </td>
-                                    </tr>
-                                [{else}]
-                                    <tr>
-                                        <td class="edittext" width="90">
-                                            <label for="d3bonimadontcheck">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEGROUPFROMCHECK"}]</label>
-                                        </td>
-                                        <td class="edittext">
-                                            <input type="hidden" name="editval[oxgroups__d3bonimadontcheck]" value="0">
-                                            <input class="edittext" id="d3bonimadontcheck" type="checkbox" name="editval[oxgroups__d3bonimadontcheck]" value="1" [{if $edit->oxgroups__d3bonimadontcheck->value}]checked="checked"[{/if}] disabled>
-                                        </td>
-                                    </tr>
-                                [{/if}]
+                                <tr>
+                                    <td class="edittext" width="90">
+                                        <label for="d3bonimadonttreat" style="[{if $oView->hasPremiumOption()}]font-weight: bold;[{/if}]">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEGROUPFROMTREATMENT"}]</label>
+                                    </td>
+                                    <td class="edittext">
+                                        <input type="hidden" name="editval[oxgroups__d3bonimadonttreat]" value="0">
+                                        <input class="edittext" id="d3bonimadonttreat" type="checkbox" name="editval[oxgroups__d3bonimadonttreat]" value="1" [{if $edit->oxgroups__d3bonimadonttreat->value}]checked="checked"[{/if}] [{if $oView->hasPremiumOption()}][{$readonly}][{else}]disabled[{/if}]>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="edittext" width="90">
+                                        <label for="d3bonimadontcheck" style="[{if $oView->hasPremiumOption()}]font-weight: bold;[{/if}]">[{oxmultilang ident="D3_BONIMASCORE_EXCLUDEGROUPFROMCHECK"}]</label>
+                                    </td>
+                                    <td class="edittext">
+                                        <input type="hidden" name="editval[oxgroups__d3bonimadontcheck]" value="0">
+                                        <input class="edittext" id="d3bonimadontcheck" type="checkbox" name="editval[oxgroups__d3bonimadontcheck]" value="1" [{if $edit->oxgroups__d3bonimadontcheck->value}]checked="checked"[{/if}] [{if $oView->hasPremiumOption()}][{$readonly}][{else}]disabled[{/if}]>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td class="edittext">
                                     </td>
