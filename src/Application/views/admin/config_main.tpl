@@ -228,6 +228,28 @@
             </td>
         </tr>
         <tr>
+            <td>
+                <strong><label for="sD3BoniScoreTLDTreatment">[{oxmultilang ident='D3_BONIMASCORE_ADMIN_TLDTREATMENT'}]</label></strong>
+            </td>
+            <td>
+                <input type="text" name="config[sD3BoniScoreTLDTreatment]" id="sD3BoniScoreTLDTreatment" value="[{$config->getValue('sD3BoniScoreTLDTreatment')}]" [{if false == $oView->hasPremiumOption()}] disabled[{/if}] />
+            </td>
+            <td>
+                [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_TLDTREATMENT_DESC"}]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong><label for="sD3BoniScoreTreatedScoreValue">[{oxmultilang ident='D3_BONIMASCORE_ADMIN_TREATEDSCOREVALUE'}]</label></strong>
+            </td>
+            <td>
+                <input type="text" name="config[sD3BoniScoreTreatedScoreValue]" id="sD3BoniScoreTreatedScoreValue" value="[{$config->getValue('sD3BoniScoreTreatedScoreValue')}]" [{if false == $oView->hasPremiumOption()}] disabled[{/if}] />
+            </td>
+            <td>
+                [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_TREATEDSCOREVALUE_DESC"}]
+            </td>
+        </tr>
+        <tr>
             <td colspan="2" align="right">
                 <input onclick="document.myedit.fnc.value='save';" type="submit" value="[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SAVE'}]" />
             </td>

@@ -36,14 +36,14 @@ class d3bonimascore_update extends d3install_updatebase
 {
     public $sModKey = 'd3bonimascore';
     public $sModName = 'BonimaScore';
-    public $sModVersion = '3.1.1.0';
-    public $sModRevision = '3110';
-    public $sBaseConf = '8nVv2==bWsrNkFxN3JpWGJYUGFFWDNYanpLdndsSWdGMGd4L0dJdU93WnBsa3h6bEhCbUEyUUpCMlRLU
-jlCLzZSK0NQQWxNZkI4MUV3YVZLYWd3bEZFZERYMmpDMy9lckY3UUx1SHNBNmJnWWZRdG9YYURLQ0FRd
-FJmbERwVHFLcVdtS1hiMTMrOWoxY2FIdnZqVHRoRGs0b09YMGpWTnRNaXlETGRUMGVNcGI4a1ZIdE85N
-lJjR1RPSHBCWEtDZEJSbzBXN3MyMmJMV2ZoZmpuL1V6UEJBZHJLd3gwRy9oaUVHVVdQam8wNVZ3M29OU
-HNCTm0vZE1jdVZOOGZ0NGFKcVVNMlZHNVZteFVhcEZhNnNqa3Y2VWh4SXdjUG94cytwOGdMSUhhVStKc
-3crZUY2ZU5WQXRiRkZOTVdrSm5LbGd0MndBNFZnTmdHOG9JSTZZRlhjU2FzQ1RnPT0=';
+    public $sModVersion = '3.2.0.0';
+    public $sModRevision = '3200';
+    public $sBaseConf = 'OaKv2==SlVTc3pUV2tNOThVY2FldnFGTit1bW4wL0Z4RWhZVVBycldpRzdsNzgyVFVud1BmWWpCcFk2e
+FNhY2xoN3doL0cwbHdoR2hlQ2V6a0xhVG8rd2pnREhwb01CQmFyQkxzRGNYMkM5VFJZN3RSYTFPYzJCT
+kpxUHJKSWIzU1N2cU4wWU9UTnVSQjFUdFRYMWVnUktMVG5iV2lnaENwQlJLU1RIZS9tS0xrTGdnYXFqe
+XljNWdmTVgyOUQwM0ZJRTFWdDdBV0RacGl4MDN2eURiVzFRSmMxT0JGRjFFMWZ1Qm8yMmVtM1ZtZjFFQ
+lpNMDhRWEdmUGpKdlMxYWY0TXFkaFFtVDNqaDZJZmYwV2hIamg5SUY0RkM1TGthMGljZkwyb2dzOG42R
+mVqQUhZM3licCtqSnp1VVd6cEJCZ3ZvcXdmOG5SU2JlUWxhR01mVlE5UlljdTBBPT0=';
     public $sRequirements = '';
     public $sBaseValue = 'TyUzQTglM0ElMjJzdGRDbGFzcyUyMiUzQTYlM0ElN0JzJTNBMzMlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZUNvdW50cnklMjIlM0JzJTNBMjYlM0ElMjJhN2M0MGY2MzFmYzkyMDY4Ny4yMDE3OTk4NCUyMiUzQnMlM0EzMiUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUHJvZElkJTIyJTNCcyUzQTAlM0ElMjIlMjIlM0JzJTNBMzklM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVBvc3RDaGVja1RleHQlMjIlM0JzJTNBMzAlM0ElMjJEM19CT05JTUFTQ09SRV9QQVlDSEVDS19GQUlMRUQlMjIlM0JzJTNBMzAlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVVzZXIlMjIlM0JzJTNBMCUzQSUyMiUyMiUzQnMlM0EzMCUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUGFzcyUyMiUzQnMlM0EwJTNBJTIyJTIyJTNCcyUzQTQzJTNBJTIyZDNfY2ZnX21vZF9fc0QzQm9uaW1hU2NvcmVMaW1pdEV4Y2VlZGVkVGV4dCUyMiUzQnMlM0EzNSUzQSUyMkQzX0JPTklNQVNDT1JFX0NSRURJVExJTUlUX0VYQ0VFREVEJTIyJTNCJTdE';
 
@@ -123,6 +123,16 @@ HNCTm0vZE1jdVZOOGZ0NGFKcVVNMlZHNVZteFVhcEZhNnNqa3Y2VWh4SXdjUG94cytwOGdMSUhhVStKc
             'sExtra'      => '',
             'blMultilang' => false,
         ),
+        'oxuser__d3bonimadonttreat'        => array(
+            'sTableName'  => 'oxuser',
+            'sFieldName'  => 'd3bonimadonttreat',
+            'sType'       => 'INT(1)',
+            'blNull'      => false,
+            'sDefault'    => '0',
+            'sComment'    => 'Boniversum keine Nachbehandlung',
+            'sExtra'      => '',
+            'blMultilang' => false,
+        ),
         'oxgroups__d3bonimadontcheck'        => array(
             'sTableName'  => 'oxgroups',
             'sFieldName'  => 'd3bonimadontcheck',
@@ -130,6 +140,16 @@ HNCTm0vZE1jdVZOOGZ0NGFKcVVNMlZHNVZteFVhcEZhNnNqa3Y2VWh4SXdjUG94cytwOGdMSUhhVStKc
             'blNull'      => false,
             'sDefault'    => '0',
             'sComment'    => 'Boniversum keine Pruefung',
+            'sExtra'      => '',
+            'blMultilang' => false,
+        ),
+        'oxgroups__d3bonimadonttreat'        => array(
+            'sTableName'  => 'oxgroups',
+            'sFieldName'  => 'd3bonimadonttreat',
+            'sType'       => 'INT(1)',
+            'blNull'      => false,
+            'sDefault'    => '0',
+            'sComment'    => 'Boniversum keine Nachbehandlung',
             'sExtra'      => '',
             'blMultilang' => false,
         ),
