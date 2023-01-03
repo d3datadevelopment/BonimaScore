@@ -67,6 +67,10 @@ Unvalidierten Personen sollten Sie unabhängig vom Score keine kritischen Zahlun
 ## Konfiguration
 Haben Sie anhand der 3 Kriterien den passenden Eintrag in der Matrix finden können, markieren Sie dort alle nutzbaren Zahlungsarten und das verfügbare Kreditlimit.
 
+### Kreditlimit
+Erlauben Sie Kunden die ausgewählten Zahlungsarten nur, wenn deren Warenkorbhöhe einen bestimmten Betrag nicht überschreitet. Beachten Sie bitte, dass ein mit 0 (null) eingestelltes Kreditlimit diese Prüfung deaktiviert. Dann wird die Warenkorbhöhe nicht überprüft.
+Das Kreditlimit können Sie am Matrixeintrag setzen. Lizenzabhängig können Sie das Limit zusätzlich am Kundenkonto setzen und damit den Wert der Matrix überstimmen.
+
 ## Weitere Filtermöglichkeiten
 Unabhäng der Entscheidungsmatrix können Sie auch an den Zahlungsarten selbst weitere Bedingungen definieren, ab wann eine Bezahlart zur Verfügung stehen soll. So können Sie auch Kunden mit mittelmäßigem Score eine kritische Zahlungsart anbieten, wenn diese z.B. nur auf kleine Warenkörbe angewendet werden kann. Oder Sie Sie bieten Zahlungsarten z.B. erst ab der 2. Bestellung an (Kundengruppe kleiner, mittlerer, großer Umsatz). Damit reduzieren Sie das Ausfallrisiko weiter.
 

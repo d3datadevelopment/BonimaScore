@@ -250,7 +250,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="right">
+            <td colspan="2" style="text-align: right;">
                 <input onclick="document.myedit.fnc.value='save';" type="submit" value="[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SAVE'}]" />
             </td>
             <td></td>
