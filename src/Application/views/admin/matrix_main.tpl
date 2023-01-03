@@ -45,6 +45,19 @@
     <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
+[{capture name="tableHeadline"}]
+    <tr class="headings">
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_ADDRVAL'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_ADDRVAL_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_PERSIDENT'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_PERSIDENT_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SCORECLASS'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_SCORECLASS_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SCOREFROM'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_SCOREFROM_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SCORETO'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_SCORETO_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_NEGPOS'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_NEGPOS_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_PAYMENTTYPE'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_PAYMENTTYPE_DESC"}]</th>
+        <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_CREDITLIMIT'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_CREDITLIMIT_DESC"}]</th>
+    </tr>
+[{/capture}]
+
 <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" style="padding: 0; margin: 0; height:0;" enctype="multipart/form-data">
     [{$oViewConf->getHiddenSid()}]
     <input type="hidden" name="cl" value="[{$oView->getClassName()}]">
@@ -60,18 +73,12 @@
                 </td>
             </tr>
 
-            <tr class="headings">
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_ADDRVAL'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_ADDRVAL_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_PERSIDENT'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_PERSIDENT_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SCORECLASS'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_SCORECLASS_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SCOREFROM'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_SCOREFROM_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_SCORETO'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_SCORETO_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_NEGPOS'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_NEGPOS_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_PAYMENTTYPE'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_PAYMENTTYPE_DESC"}]</th>
-                <th>[{oxmultilang ident='D3_BONIMASCORE_ADMIN_CREDITLIMIT'}] [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_CREDITLIMIT_DESC"}]</th>
-            </tr>
-
             [{foreach from=$oView->d3GetConfigOptions() key='sConfigId' item='oConfig'}]
+                [{assign var="hash" value=$oConfig->getFieldData('addressreturncode')|cat:$oConfig->getFieldData('identreturncode')}]
+                [{if $hash != $formerHash}]
+                    [{$smarty.capture.tableHeadline}]
+                    [{assign var="formerHash" value=$hash}]
+                [{/if}]
                 <tr class="even pointer" id="1" style="vertical-align:middle;background:[{cycle values='#F6F6F6,#FFFFFF'}]">
                     <td>
                         [{oxmultilang ident='D3_BONIMASCORE_ADMIN_'|cat:$oConfig->getFieldData('addressreturncode')}]
@@ -104,6 +111,7 @@
                     <td>
                         <label for="[{$sConfigId}]_creditlimit" style="position: absolute; left: -9999em">[{oxmultilang ident="D3_BONIMASCORE_ADMIN_CREDITLIMIT"}]</label>
                         <input type="text" id="[{$sConfigId}]_creditlimit" name="config[[{$sConfigId}]][creditlimit]" value="[{$oConfig->getFieldData('creditlimit')|@floatval}]" />
+                        [{oxinputhelp ident="D3_BONIMASCORE_ADMIN_CREDITLIMIT_DESC"}]
                     </td>
                 </tr>
             [{/foreach}]

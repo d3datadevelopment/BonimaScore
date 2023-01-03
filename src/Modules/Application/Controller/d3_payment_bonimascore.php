@@ -53,7 +53,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
     {
         $sReturn = parent::render();
 
-        if (false == $this->_d3GetSettings()->isActive()) {
+        if (!$this->_d3GetSettings()->isActive()) {
             $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'module not active or license not valid');
             return $sReturn;
         }
@@ -108,7 +108,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
     {
         $mReturn = parent::validatePayment();
 
-        if (false == $this->_d3GetSettings()->isActive()) {
+        if (!$this->_d3GetSettings()->isActive()) {
             return $mReturn;
         }
 
@@ -127,7 +127,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
 
         /** @var d3_oxuser_bonimascore $oUser */
         $oUser = $this->getUser();
-        if (false == $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false == $oUser->isLoaded()) {
+        if (!$this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && !$oUser->isLoaded()) {
             $this->_d3GetSettings()->d3getLog()->log(d3log::DEBUG, __CLASS__, __FUNCTION__, __LINE__, 'no user loaded');
             $mReturn = $this->d3GetNoMandatoryFieldValueReturn();
         } elseif (false === $this->d3PaymentIsSafe($oBonima->d3GetRequestedPaymentId()) && false === $oUser->d3HasMandatoryFieldValues()) {
@@ -172,7 +172,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
             }
         }
 
-        return array_unique($fields, SORT_STRING);
+        return array_unique($fields);
     }
 
     /**
@@ -318,7 +318,7 @@ class d3_payment_bonimascore extends d3_payment_bonimascore_parent
     /**
      * Entfernt alle nicht erlaubten Zahlarten
      * @param d3bonimascore $oConfig
-     * @return array|PaymentList
+     * @return PaymentList
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException

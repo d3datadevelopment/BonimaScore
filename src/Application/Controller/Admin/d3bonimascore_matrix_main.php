@@ -75,7 +75,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
      * @return ListModel
      * @throws DBALException
      */
-    public function d3GetConfigOptions()
+    public function d3GetConfigOptions(): ListModel
     {
         $sShopId = Registry::getConfig()->getShopId();
 
@@ -113,7 +113,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
      * @return PaymentList
      * @throws DBALException
      */
-    protected function _d3GetPaymentList()
+    protected function _d3GetPaymentList(): PaymentList
     {
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('*')
@@ -134,7 +134,7 @@ class d3bonimascore_matrix_main extends d3_cfg_mod_main
      * @return bool
      * @throws DBALException
      */
-    public function isSafePayment($sPaymentId)
+    public function isSafePayment($sPaymentId): bool
     {
         $oList = $this->d3GetPaymentList();
         $oPayment = $oList->offsetGet($sPaymentId);

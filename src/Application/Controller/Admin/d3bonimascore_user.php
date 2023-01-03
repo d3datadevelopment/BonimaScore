@@ -121,7 +121,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaScoreConfig()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 
@@ -148,7 +148,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaScoreValue($raw = false)
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 
@@ -166,7 +166,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponseAddress()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 
@@ -184,7 +184,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponsePerson()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 
@@ -202,7 +202,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponseValidationStatus()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 
@@ -220,7 +220,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponsePersonIdentification()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 
@@ -238,7 +238,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponseTaskDetails()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return null;
         }
 
@@ -261,7 +261,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getNextBonimaCheckDatetime()
     {
-        if (false == $this->bonimaresponse) {
+        if (!$this->bonimaresponse) {
             return false;
         }
 

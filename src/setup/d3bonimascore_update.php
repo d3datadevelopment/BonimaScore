@@ -29,6 +29,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\EshopCommunity\Core\DatabaseProvider;
+use ReflectionException;
 
 /**
  * Class d3_extsearch_update
@@ -37,14 +38,14 @@ class d3bonimascore_update extends d3install_updatebase
 {
     public $sModKey = 'd3bonimascore';
     public $sModName = 'BonimaScore';
-    public $sModVersion = '4.1.0.0';
-    public $sModRevision = '4100';
-    public $sBaseConf = 'imev2==QmRteFloVDhxNHY4TmgxeVhvQTNhU3NNOURxbHp3YVJUQ0tHMENYZ2R3cnZFMzBiTEUxaTRIR
-XVwNUZyWnV6em1IdmNxNmdKWVA5WGJ3STBCRStsaHFBTU5yTGlPcElrSjlSODJZVTRScXI3ekIyQlBwb
-CtqUHpXcHNTcGx1OG0zTHRZODh0K3VQZG9qMjJCUnU5RkZCZkxQWHdWSGF4bFFXbXNZaGIxckYwemE0d
-2FNUWo1b3hSZzRnZ1F1Q2N2N2tHYk41RGxzN0RuRGErVWdwMytGcCszaGFhQkdZdXZWNjA5TzVTWDhiY
-1NpcmkxKzFEakRTOEx4QVVNTk1vUjJXV2VvNXRhV0MybXBuN3NpQldqNkdsZzMxempvY0Q0eUJQQTdUY
-U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
+    public $sModVersion = '4.1.1.0';
+    public $sModRevision = '4110';
+    public $sBaseConf = 'U37v2==cEtIL2MraHloT3NSbmhSR2Q5b0p6ZzNqN1QwQ2J1eFp3NEY4NXRjbGxVdW5mcGl3TjBWUzQ3R
+Gx2djd6T09EcTlacGNMRmZrV25makhxdXd3ZE5DTzdQRy9PRzByY2R4K1l5Uzd2eDYzSkxkb0JiMnEwT
+GhWOERqYS8xSTRqdkJNblIrSSt2OENGZ21iNzFKK0tkd3h5M1RFRGNSTUJFOExETjgrWVZzbG8vRGx6V
+jRuWjFJNzdna2FFR2t3RnZQZUp5NzllQUxyZXB2QVJOMmppemVRbXhENlZBOEJwYnZVcmFWN2RuVFFXb
+jVVL0Qzdjl5Ull4UkUrbDVUMDdFaExiVjU5T2dSdFgxRHVwSXBzaUhEZVk3WDMzN3UyQWw1TW0rRGtqZ
+WtDeWk2ZmJBR25zZUdnZDNBOHZRMnVjdkJBVUt5U3huMk12ZzhFZFV4QTAwSFFBPT0=';
     public $sRequirements = '';
     public $sBaseValue = 'TyUzQTglM0ElMjJzdGRDbGFzcyUyMiUzQTYlM0ElN0JzJTNBMzMlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZUNvdW50cnklMjIlM0JzJTNBMjYlM0ElMjJhN2M0MGY2MzFmYzkyMDY4Ny4yMDE3OTk4NCUyMiUzQnMlM0EzMiUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUHJvZElkJTIyJTNCcyUzQTAlM0ElMjIlMjIlM0JzJTNBMzklM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVBvc3RDaGVja1RleHQlMjIlM0JzJTNBMzAlM0ElMjJEM19CT05JTUFTQ09SRV9QQVlDSEVDS19GQUlMRUQlMjIlM0JzJTNBMzAlM0ElMjJkM19jZmdfbW9kX19zRDNCb25pbWFTY29yZVVzZXIlMjIlM0JzJTNBMCUzQSUyMiUyMiUzQnMlM0EzMCUzQSUyMmQzX2NmZ19tb2RfX3NEM0JvbmltYVNjb3JlUGFzcyUyMiUzQnMlM0EwJTNBJTIyJTIyJTNCcyUzQTQzJTNBJTIyZDNfY2ZnX21vZF9fc0QzQm9uaW1hU2NvcmVMaW1pdEV4Y2VlZGVkVGV4dCUyMiUzQnMlM0EzNSUzQSUyMkQzX0JPTklNQVNDT1JFX0NSRURJVExJTUlUX0VYQ0VFREVEJTIyJTNCJTdE';
 
@@ -730,7 +731,7 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function checkBonimaTableExist()
+    public function checkBonimaTableExist(): bool
     {
         return $this->_checkTableNotExist('d3bonimascore');
     }
@@ -742,11 +743,11 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseErrorException
      * @throws ConnectionException
      */
-    public function updateBonimaTableExist()
+    public function updateBonimaTableExist(): bool
     {
         $blRet = false;
         if ($this->checkBonimaTableExist()) {
-            $blRet  = $this->_addTable2('d3bonimascore', $this->aFields, $this->aIndizes, '', 'InnoDB');
+            $blRet  = $this->_addTable2('d3bonimascore', $this->aFields, $this->aIndizes, '');
         }
 
         return $blRet;
@@ -758,7 +759,7 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function checkBonimaResponseTableExist()
+    public function checkBonimaResponseTableExist(): bool
     {
         return $this->_checkTableNotExist('d3bonimascoreresponse');
     }
@@ -770,11 +771,11 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function updateBonimaResponseTableExist()
+    public function updateBonimaResponseTableExist(): bool
     {
         $blRet = false;
         if ($this->checkBonimaResponseTableExist()) {
-            $blRet  = $this->_addTable2('d3bonimascoreresponse', $this->aFields, $this->aIndizes, '', 'InnoDB');
+            $blRet  = $this->_addTable2('d3bonimascoreresponse', $this->aFields, $this->aIndizes, '');
         }
 
         return $blRet;
@@ -786,7 +787,7 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      */
-    public function checkScoreItemsExist()
+    public function checkScoreItemsExist(): bool
     {
         $blRet = false;
 
@@ -815,7 +816,7 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function updateScoreItemsExist()
+    public function updateScoreItemsExist(): bool
     {
         $blRet = false;
 
@@ -912,13 +913,14 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws ConnectionException
      * @throws DatabaseConnectionException
      */
-    public function checkValidunc7FromValue()
+    public function checkValidunc7FromValue(): bool
     {
         $score = oxNew(d3bonimascore::class);
 
+        /** @var Shop $oShop */
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             $query = "SELECT count(*) FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('validunc7', ' ', ".$oShop->getId().")) AND scorefrom = '952'";
-            if ((bool) DatabaseProvider::getDb()->getOne($query)) {
+            if (DatabaseProvider::getDb()->getOne($query)) {
                 return true;
             }
         }
@@ -933,12 +935,13 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function updateValidunc7FromValue()
+    public function updateValidunc7FromValue(): bool
     {
         $score = oxNew(d3bonimascore::class);
 
         $blRet = false;
 
+        /** @var Shop $oShop */
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             $query = "SELECT oxid FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('validunc7', ' ', ".$oShop->getId().")) AND scorefrom = '952'";
             foreach (DatabaseProvider::getDb()->getAll($query) as $fields) {
@@ -955,7 +958,7 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
                     ],
                     ['OXID'    => $fields['OXID']]
                 );
-                if ($blRet == false) {
+                if (!$blRet) {
                     break;
                 }
             }
@@ -969,13 +972,14 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws ConnectionException
      * @throws DatabaseConnectionException
      */
-    public function checkInvalid10Values()
+    public function checkInvalid10Values(): bool
     {
         $score = oxNew(d3bonimascore::class);
 
+        /** @var Shop $oShop */
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             $query = "SELECT count(*) FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('invalid10', ' ', ".$oShop->getId().")) AND scorefrom = '0' AND scoreto = '10000'";
-            if ((bool) DatabaseProvider::getDb()->getOne($query)) {
+            if (DatabaseProvider::getDb()->getOne($query)) {
                 return true;
             }
         }
@@ -990,12 +994,13 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function updateInvalid10Values()
+    public function updateInvalid10Values(): bool
     {
         $score = oxNew(d3bonimascore::class);
 
         $blRet = false;
 
+        /** @var Shop $oShop */
         foreach ($this->getShopListByActiveModule('d3bonimascore') as $oShop) {
             $query = "SELECT oxid FROM " . $score->getViewName() . " WHERE oxid = MD5(CONCAT('invalid10', ' ', ".$oShop->getId().")) AND scorefrom = '0' AND scoreto = '10000'";
             foreach (DatabaseProvider::getDb()->getAll($query) as $fields) {
@@ -1018,7 +1023,7 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
                     ],
                     ['OXID'    => $fields['OXID']]
                 );
-                if ($blRet == false) {
+                if (!$blRet) {
                     break;
                 }
             }
@@ -1033,11 +1038,12 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      * @throws StandardException
+     * @throws ReflectionException
      * @throws d3ParameterNotFoundException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    public function hasUnregisteredFiles()
+    public function hasUnregisteredFiles(): bool
     {
         return $this->_hasUnregisteredFiles('d3bonimascore', ['blocks', 'd3FileRegister']);
     }
@@ -1047,11 +1053,12 @@ U95bzI2ellCVDRMK1RrSGxNWkFSOWJZYVY5SksyN2ZhRlBHWnpJR1paQW9qVEJnPT0=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @throws ReflectionException
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    public function showUnregisteredFiles()
+    public function showUnregisteredFiles(): bool
     {
         return $this->_showUnregisteredFiles('d3bonimascore', ['blocks', 'd3FileRegister']);
     }
