@@ -81,7 +81,7 @@ class d3bonimascore_config_main extends d3_cfg_mod_main
      * @return ListModel
      * @throws DBALException
      */
-    public function d3GetCountryList(): ListModel
+    public function d3GetCountryList()
     {
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('*')
@@ -96,7 +96,7 @@ class d3bonimascore_config_main extends d3_cfg_mod_main
         return $oList;
     }
 
-    public function getHasDebugSwitch(): bool
+    public function getHasDebugSwitch()
     {
         return true;
     }
@@ -104,7 +104,7 @@ class d3bonimascore_config_main extends d3_cfg_mod_main
     /**
      * @return string
      */
-    public function getDebugHelpTextIdent(): string
+    public function getDebugHelpTextIdent()
     {
         return $this->_sBoniversumDebugHelpTextIdent;
     }
@@ -118,7 +118,7 @@ class d3bonimascore_config_main extends d3_cfg_mod_main
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    public function hasPremiumOption(): bool
+    public function hasPremiumOption()
     {
         return $this->d3GetSettings()->getLicenseConfigData(d3bonimascore_conf::SERIAL_BIT_PREMIUMEDITION, 1);
     }

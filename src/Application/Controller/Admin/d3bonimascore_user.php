@@ -121,7 +121,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaScoreConfig()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return false;
         }
 
@@ -136,26 +136,6 @@ class d3bonimascore_user extends AdminController
     }
 
     /**
-     * @param false $raw
-     *
-     * @return false|int
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function getBonimaScoreValue($raw = false)
-    {
-        if (!$this->bonimaresponse) {
-            return false;
-        }
-
-        return $this->bonimaresponse->d3GetScoreValue($raw);
-    }
-
-    /**
      * @return false|string
      * @throws DBALException
      * @throws DatabaseConnectionException
@@ -166,7 +146,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponseAddress()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return false;
         }
 
@@ -184,7 +164,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponsePerson()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return false;
         }
 
@@ -202,7 +182,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponseValidationStatus()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return false;
         }
 
@@ -220,7 +200,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponsePersonIdentification()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return false;
         }
 
@@ -238,7 +218,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getBonimaResponseTaskDetails()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return null;
         }
 
@@ -261,7 +241,7 @@ class d3bonimascore_user extends AdminController
      */
     public function getNextBonimaCheckDatetime()
     {
-        if (!$this->bonimaresponse) {
+        if (false == $this->bonimaresponse) {
             return false;
         }
 
